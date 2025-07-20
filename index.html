@@ -153,7 +153,19 @@
       margin: 0 auto;
       border: 1px solid rgba(255, 255, 255, 0.6);
     }
-    .countdown-title { font-size: 1.3rem; font-weight: 700; color: var(--text2); margin-bottom: 20px; }
+    .countdown-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent1);
+      margin-bottom: 20px;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-15px); }
+      60% { transform: translateY(-8px); }
+    }
     #countdown { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
     .time-block {
       background: var(--gradient-accent);
