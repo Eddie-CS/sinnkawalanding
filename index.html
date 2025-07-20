@@ -103,10 +103,10 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url('Sinnkawa_family_pic.png');
+      background-image: url('背景一全家又在礼物店门口.png');
       background-size: cover;
       background-position: center;
-      opacity: 0.15;
+      opacity: 0.2;
       z-index: 1;
     }
     header .container {
@@ -210,6 +210,28 @@
       font-weight: 400; max-width: 600px; margin-left: auto;
       margin-right: auto; text-align: center;
     }
+
+    /* Section Backgrounds */
+    .section-bg {
+      position: relative;
+      overflow: hidden;
+    }
+    .section-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .bg1.section-bg::before { background-image: url('背景一全家又在礼物店门口.png'); }
+    .bg2.section-bg::before { background-image: url('背景三全家在新加坡.png'); }
+    .bg3.section-bg::before { background-image: url('背景二全家在礼物店.png'); }
     
     /* Social Media & Buttons */
     .social-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
@@ -437,7 +459,7 @@
 
   <main class="container">
     <!-- Social Media Section -->
-    <section class="social-section fade-in">
+    <section class="social-section fade-in section-bg bg1">
       <h2 class="section-title"><span class="en">Find Us On</span><span class="zh">关注我们</span></h2>
       <p class="section-subtitle"><span class="en">Follow our journey and get the latest updates!</span><span class="zh">关注我们的旅程，获取最新动态！</span></p>
       <div class="social-btns">
@@ -452,7 +474,7 @@
     
 
     <!-- Theme Outlets Section -->
-    <section class="store-section">
+    <section class="store-section section-bg bg2">
       <div class="store-grid">
         <div class="store-card">
           <h3 class="store-title">Sinnkawa 礼品店 - 牛车水总店</h3>
@@ -505,7 +527,7 @@
     </section>
 
     <!-- Company Info Section -->
-    <section class="company-section fade-in">
+    <section class="company-section fade-in section-bg bg3">
       <h2 class="section-title"><span class="en">About Us</span><span class="zh">关于我们</span></h2>
       <p class="section-subtitle"><span class="en">For business inquiries or to know more, feel free to reach out.</span><span class="zh">如需合作或了解更多，欢迎联系我们。</span></p>
       <div class="company-content">
