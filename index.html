@@ -256,37 +256,64 @@
       font-size: 1rem;
     }
 
-    /* Theme Outlets */
-    .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-    .theme-card {
-      background: #fff; border-radius: var(--border-radius-md); box-shadow: var(--shadow);
-      overflow: hidden; transition: var(--transition); display: flex;
-      flex-direction: column; border: 3px solid transparent;
+    /* Store Section Styles (simple cards) */
+    .store-section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
     }
-    .theme-card.featured {
-      grid-column: span 2;
+
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
     }
-    .theme-card:hover { transform: translateY(-10px); border-color: var(--primary1); box-shadow: var(--shadow-hover); }
-    .theme-card .store-img-wrapper { overflow: hidden; }
-    .theme-card .store-img { width: 100%; height: 240px; object-fit: cover; transition: transform 0.5s ease; }
-    .theme-card.featured .store-img { height: 320px; }
-    .theme-card:hover .store-img { transform: scale(1.1); }
-    .theme-card .card-content { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
-    .theme-card .card-title { font-size: 1.5rem; font-weight: 600; color: var(--text2); margin-bottom: 8px; }
-    .theme-card .card-desc { font-size: 1rem; color: var(--text1); margin-bottom: 20px; flex-grow: 1; }
-    .theme-card .visit-btn {
-      background: var(--gradient-btn); color: #fff; border: none;
-      border-radius: var(--border-radius-sm); padding: 12px 24px; font-size: 1rem;
-      font-weight: 500; cursor: pointer; transition: var(--transition), background-position 0.5s;
-      text-decoration: none; display: flex; align-items: center; justify-content: center;
-      gap: 8px; width: 100%; background-size: 200% auto;
+
+    .store-card {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .theme-card .visit-btn:hover {
-      transform: translateY(-3px) scale(1.05);
-      animation: shake 0.4s;
-      background-position: right center;
+
+    .store-title {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #2d2d2d;
     }
-    .theme-card .card-actions { margin-top: auto; min-height: 46px; }
+
+    .store-desc {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #4a4a4a;
+    }
+
+    .store-desc .en {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    .store-btn {
+      margin-top: 16px;
+      text-decoration: none;
+      font-weight: 500;
+      background: #d2ecff;
+      color: #2d5fa4;
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      transition: all 0.2s ease;
+    }
+
+    .store-btn:hover {
+      background: #bee1ff;
+    }
 
     /* Footer */
     footer {
@@ -433,64 +460,55 @@
     
 
     <!-- Theme Outlets Section -->
-    <section class="theme-section fade-in">
-      <h2 class="section-title"><span class="en">Theme Outlets</span><span class="zh">主题门店</span></h2>
-      <p class="section-subtitle"><span class="en">Discover our cute stores across Singapore.</span><span class="zh">探索我们在新加坡各地的可爱门店。</span></p>
-      <div class="theme-grid">
-        <div class="theme-card featured">
-          <div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_THEME_Cafe_Chinatown1.png" alt="主题咖啡厅" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=主题咖啡厅';"></div>
-          <div class="card-content">
-            <h3 class="card-title"><span class="zh">SINNKAWA咖啡@牛车水｜楼上咖啡厅，季节饮品与IP主题空间</span><span class="en">SINNKAWA Café@Chinatown｜Cozy upstairs café with seasonal drinks and IP-themed interiors</span></h3>
-            <p class="card-desc">&nbsp;</p>
-            <div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div>
-          </div>
+    <section class="store-section">
+      <div class="store-grid">
+        <div class="store-card">
+          <h3 class="store-title">Sinnkawa 礼品店 - 牛车水总店</h3>
+          <p class="store-desc">新加坡牛车水主街，主门店，红色灯笼为标志。
+            <span class="en">Located in Chinatown, our main gift shop glows with signature red lanterns.</span>
+          </p>
+          <a href="https://maps.google.com" class="store-btn">📍 查看地图</a>
         </div>
 
-        <div class="theme-card">
-          <div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_Chinatown.png" alt="牛车水总店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=牛车水总店';"></div>
-          <div class="card-content">
-            <h3 class="card-title"><span class="zh">SINNKAWA旗舰店@牛车水｜汇集完整IP系列及独家商品的主旗舰店</span><span class="en">SINNKAWA Flagship@Chinatown｜Main flagship store featuring full IP collections and exclusive merchandise</span></h3>
-            <p class="card-desc">&nbsp;</p>
-            <div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div>
-          </div>
+        <div class="store-card">
+          <h3 class="store-title">Sinnkawa 礼品店 - 哈芝巷 22 号（红黄）</h3>
+          <p class="store-desc">涂鸦墙背景，潮流与玩趣兼具的角色展示空间。
+            <span class="en">Graffiti-style walls meet playful character vibes at this trendy hideout.</span>
+          </p>
+          <a href="https://maps.google.com" class="store-btn">📍 查看地图</a>
         </div>
 
-        <div class="theme-card">
-          <div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_22_Haji_Lane.png" alt="哈芝巷22号" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=哈芝巷22号';"></div>
-          <div class="card-content">
-            <h3 class="card-title"><span class="zh">SINNKAWA@22 Haji巷｜街头风礼品店，涂鸦墙与青年潮玩</span><span class="en">SINNKAWA@22 Haji Lane｜Trendy street-style gift shop with graffiti wall and youth-focused collectibles</span></h3>
-            <p class="card-desc">&nbsp;</p>
-            <div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/NgZPfmMp2egFZhAQ7" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div>
-          </div>
+        <div class="store-card">
+          <h3 class="store-title">Sinnkawa 礼品店 - 黑白主题店（68 号）</h3>
+          <p class="store-desc">极简黑白配色，沉静系美学，适合拍照打卡。
+            <span class="en">Minimal black & white aesthetics—a calm, curated photo spot.</span>
+          </p>
+          <a href="https://maps.google.com" class="store-btn">📍 查看地图</a>
         </div>
 
-        <div class="theme-card">
-          <div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_68_BW_Theme..png" alt="黑白主题店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=黑白主题店';"></div>
-          <div class="card-content">
-            <h3 class="card-title"><span class="zh">SINNKAWA@68 Haji巷｜黑白极简概念店，精选高端商品</span><span class="en">SINNKAWA@68 Haji Lane｜Minimalist black-and-white concept store featuring curated premium items</span></h3>
-            <p class="card-desc">&nbsp;</p>
-            <div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/cPchyEaSGGsMjbg99" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div>
-          </div>
+        <div class="store-card">
+          <h3 class="store-title">Sinnkawa 旗舰体验店（43 号）</h3>
+          <p class="store-desc">互动体验场域，沉浸式角色感官之旅。
+            <span class="en">Step inside an immersive world of characters and interactive zones.</span>
+          </p>
+          <a href="https://maps.google.com" class="store-btn">📍 查看地图</a>
         </div>
 
-        <div class="theme-card">
-          <div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_43_Haji_Lane_Megastore_Experience_Zone..png" alt="旗舰体验店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=旗舰体验店';"></div>
-          <div class="card-content">
-            <h3 class="card-title"><span class="zh">SINNKAWA@43 Haji巷｜互动体验区，巨型展示与蓝色主题设计</span><span class="en">SINNKAWA@43 Haji Lane｜Interactive experience zone with large format displays and blue-themed design</span></h3>
-            <p class="card-desc">&nbsp;</p>
-            <div class="card-actions"></div>
-          </div>
+        <div class="store-card">
+          <h3 class="store-title">Soul Art - 艺术与 IP（62 号）</h3>
+          <p class="store-desc">艺术作品、文艺选品，与 Sinnkawa 的灵魂共鸣。
+            <span class="en">IP meets indie art in this soulful concept space for creators and dreamers.</span>
+          </p>
+          <a href="https://maps.google.com" class="store-btn">📍 查看地图</a>
         </div>
 
-        <div class="theme-card">
-          <div class="store-img-wrapper"><img class="store-img" src="Soul_Art_Art_IP_62_Haji.png" alt="Soul Art" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=Soul Art';"></div>
-          <div class="card-content">
-            <h3 class="card-title"><span class="zh">Soul Art@62 Haji巷｜艺术与生活方式概念店，展出原创IP艺术及创意周边</span><span class="en">Soul Art@62 Haji Lane｜Art & lifestyle concept store showcasing original IP artwork and creative merch</span></h3>
-            <p class="card-desc">&nbsp;</p>
-            <div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/QHbdCKU81UJwMuX27" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div>
-          </div>
+        <div class="store-card">
+          <h3 class="store-title">Sinnkawa 主题咖啡厅 - 牛车水</h3>
+          <p class="store-desc">角色联名甜点饮品 + 插画特调氛围，放空发呆推荐！
+            <span class="en">Character-inspired drinks & dreamy illustrations—perfect for a cozy pause.</span>
+          </p>
+          <a href="https://maps.google.com" class="store-btn">📍 查看地图</a>
         </div>
-
       </div>
     </section>
 
