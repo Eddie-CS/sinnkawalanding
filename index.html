@@ -43,7 +43,12 @@
       position: relative;
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 60px 0; position: relative; }
+    section {
+      padding: 60px 0;
+      position: relative;
+      border-bottom: 1px dashed var(--gray2);
+    }
+    section:last-of-type { border-bottom: none; }
     img { max-width: 100%; height: auto; display: block; }
 
     /* New Background Icons */
