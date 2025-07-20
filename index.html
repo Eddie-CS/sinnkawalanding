@@ -121,7 +121,8 @@
       background: rgba(255,255,255,0.5);
       border: 1px solid rgba(255,255,255,0.8);
       border-radius: var(--border-radius-md);
-      padding: 8px 15px;
+      padding: 12px 20px;
+      font-size: 1.1rem;
       cursor: pointer;
       font-weight: 500;
       color: var(--text2);
@@ -374,10 +375,7 @@
   <div class="background-icons" id="background-icons"></div>
 
   <header>
-    <button class="lang-switch" onclick="toggleLang()">
-      <span class="en">中</span>
-      <span class="zh">EN</span>
-    </button>
+    <button class="lang-switch" onclick="toggleLang()">🌍 <span class="en">中</span><span class="zh">EN</span></button>
     <div class="container">
       <div class="logo-slogan-wrapper">
         <img src="Sinnkawa_logo.png" alt="Sinnkawa Logo" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/180x100/C6E3F9/3D405B?text=Sinnkawa';">
@@ -523,7 +521,6 @@
 
   <div class="floating-buttons">
     <a href="https://wa.me/6597759906" target="_blank" class="fab fab-whatsapp"><i class="fab fa-whatsapp"></i></a>
-    <button class="fab fab-lang" onclick="toggleLang()"><span class="en">中</span><span class="zh">EN</span></button>
     <div class="fab fab-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
   </div>
 
