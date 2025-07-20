@@ -12,11 +12,11 @@
   <style>
     :root {
       /* Updated color palette */
-      --brand-primary: #b1f2f7;
-      --primary1: #b1f2f7;
-      --primary2: #d6f7fb;
-      --accent1: #1f3c88; /* Deep blue accent */
-      --accent2: #32527b;
+      --brand-primary: #c6e3ff;
+      --primary1: #b3d8ff;
+      --primary2: #dff1ff;
+      --accent1: #4a90e2; /* Bright blue accent */
+      --accent2: #6bb7ff;
       --text1: #3D405B;
       --text2: #5a7d9a;
       --gray1: #f8f9fa;
@@ -43,7 +43,12 @@
       position: relative;
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    section { padding: 60px 0; position: relative; }
+    section {
+      padding: 60px 0;
+      position: relative;
+      border-bottom: 1px dashed var(--gray2);
+    }
+    section:last-of-type { border-bottom: none; }
     img { max-width: 100%; height: auto; display: block; }
 
     /* New Background Icons */
@@ -166,14 +171,20 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-    .new-features-desc {
-        font-size: 1rem;
         color: var(--text2);
         max-width: 500px;
         margin: 0 auto;
         font-weight: 500;
     }
-    .new-features-desc i { margin-right: 8px; color: var(--accent1); }
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .feature-item i {
+        font-size: 1.4rem;
+        color: var(--accent1);
+    }
 
     /* General Section Styling */
     .section-title {
@@ -198,9 +209,15 @@
       display: flex; align-items: center; gap: 12px; font-size: 1.1rem;
       font-weight: 500; color: #fff; border-radius: var(--border-radius-md);
       box-shadow: var(--shadow); padding: 14px 28px; text-decoration: none;
-      transition: var(--transition); border: none;
+      transition: var(--transition), background-position 0.5s;
+      border: none; background-size: 200% auto;
     }
-    .social-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: var(--shadow-hover); }
+    .social-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: var(--shadow-hover);
+      animation: shake 0.4s;
+      background-position: right center;
+    }
     .social-btn .icon { font-size: 1.5rem; }
     .social-btn.xhs { background: linear-gradient(135deg, #FF2442 0%, #FF607E 100%); }
     .social-btn.ig { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
@@ -225,11 +242,15 @@
     .theme-card .visit-btn {
       background: var(--gradient-btn); color: #fff; border: none;
       border-radius: var(--border-radius-sm); padding: 12px 24px; font-size: 1rem;
-      font-weight: 500; cursor: pointer; transition: var(--transition);
+      font-weight: 500; cursor: pointer; transition: var(--transition), background-position 0.5s;
       text-decoration: none; display: inline-flex; align-items: center;
-      justify-content: center; gap: 8px; align-self: flex-start;
+      justify-content: center; gap: 8px; align-self: flex-start; background-size: 200% auto;
     }
-    .theme-card .visit-btn:hover { transform: translateY(-3px) scale(1.05); }
+    .theme-card .visit-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      animation: shake 0.4s;
+      background-position: right center;
+    }
     .theme-card .card-actions { min-height: 46px; } /* Placeholder for button */
 
     /* AI & Game Sections */
@@ -246,10 +267,15 @@
     .ai-button {
         background: var(--gradient-accent); color: white; border: none;
         border-radius: var(--border-radius-md); padding: 12px 25px; font-size: 1rem;
-        font-weight: 500; cursor: pointer; transition: var(--transition);
-        display: inline-flex; align-items: center; gap: 8px;
+        font-weight: 500; cursor: pointer; transition: var(--transition), background-position 0.5s;
+        display: inline-flex; align-items: center; gap: 8px; background-size: 200% auto;
     }
-    .ai-button:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .ai-button:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+        animation: shake 0.4s;
+        background-position: right center;
+    }
     .ai-button.loading { cursor: not-allowed; filter: grayscale(0.5); }
     .spinner {
         width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3);
@@ -278,6 +304,11 @@
     .game-button {
         background: var(--gradient-btn); color: white;
         padding: 10px 20px; font-size: 1rem; margin: 0 10px;
+        transition: var(--transition), background-position 0.5s; background-size: 200% auto;
+    }
+    .game-button:hover {
+        animation: shake 0.4s;
+        background-position: right center;
     }
     #score-board {
         position: absolute;
@@ -312,12 +343,7 @@
     }
     .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
     .footer-link {
-      font-size: 1.4rem; color: var(--text2); background: rgba(255,255,255,0.3);
-      border-radius: var(--border-radius-md); padding: 10px;
-      transition: var(--transition); cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
     }
-    .footer-link:hover { background: #fff; color: var(--accent1); transform: translateY(-3px); }
     .copyright { color: var(--text2); font-size: 0.9rem; margin-top: 20px; opacity: 0.8; }
     
     /* Floating & Modal */
@@ -325,12 +351,19 @@
     .fab {
       width: 50px; height: 50px; color: white; border-radius: 50%; display: flex;
       align-items: center; justify-content: center; font-size: 1.5rem;
-      box-shadow: var(--shadow); cursor: pointer; transition: var(--transition); text-decoration: none;
+      box-shadow: var(--shadow); cursor: pointer; transition: var(--transition), background-position 0.5s; text-decoration: none;
+      background-size: 200% auto;
     }
-    .fab:hover { transform: translateY(-5px) scale(1.1); box-shadow: var(--shadow-hover); }
+    .fab:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: var(--shadow-hover);
+      animation: shake 0.4s;
+      background-position: right center;
+    }
     .fab-whatsapp { background: #25D366; }
     .fab-top { background: var(--gradient-accent); opacity: 0; visibility: hidden; transform: translateY(10px); }
     .fab-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .fab-lang { background: var(--gradient-btn); font-size: 1rem; color: var(--text2); }
     .modal-bg {
       position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5);
       backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center;
@@ -354,9 +387,13 @@
     .whatsapp-modal-btn {
       display: inline-flex; align-items: center; gap: 10px; background: #25D366;
       color: white; padding: 12px 25px; border-radius: var(--border-radius-md);
-      text-decoration: none; font-weight: 500; transition: var(--transition);
+      text-decoration: none; font-weight: 500;
+      transition: var(--transition), background-position 0.5s; background-size: 200% auto;
     }
-    .whatsapp-modal-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+    .whatsapp-modal-btn:hover {
+      transform: scale(1.05); filter: brightness(1.1);
+      animation: shake 0.4s; background-position: right center;
+    }
     
     /* Loader & Animations */
     .loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--gradient-bg); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s 0.5s ease, visibility 0s 1s; }
@@ -399,7 +436,7 @@
       <div class="logo-slogan-wrapper">
         <img src="Sinnkawa_logo.png" alt="Sinnkawa Logo" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/180x100/C6E3F9/3D405B?text=Sinnkawa';">
         <div class="brand-slogan-card">
-          <img src="Sinnkawa_family_pic.png" alt="Sinnkawa Family" style="width:100%;max-width:240px;border-radius:var(--border-radius-md);">
+          <img src="Sinnkawa_family_pic.png" alt="Sinnkawa Family" style="width:100%;max-width:360px;border-radius:var(--border-radius-md);">
         </div>
       </div>
       
@@ -414,9 +451,22 @@
             <div class="time-block"><span id="minutes">00</span><span class="label zh">分钟</span><span class="label en">Mins</span></div>
             <div class="time-block"><span id="seconds">00</span><span class="label zh">秒</span><span class="label en">Secs</span></div>
         </div>
-        <div class="new-features-desc">
-            <p class="zh"><i class="fas fa-shopping-bag"></i>线上订购，门店自提<br><i class="fas fa-truck"></i>全岛配送，直送到家<br><i class="fas fa-gift"></i>海量线上专属折扣来袭！</p>
-            <p class="en"><i class="fas fa-shopping-bag"></i>Order online, pick up in-store<br><i class="fas fa-truck"></i>Islandwide home delivery<br><i class="fas fa-gift"></i>Exclusive online promotions coming soon!</p>
+        <div class="feature-list">
+            <div class="feature-item">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="zh">线上订购，门店自提</span>
+                <span class="en">Order online, pick up in-store</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-truck"></i>
+                <span class="zh">全岛配送，直送到家</span>
+                <span class="en">Islandwide home delivery</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-gift"></i>
+                <span class="zh">海量线上专属折扣来袭！</span>
+                <span class="en">Exclusive online promotions coming soon!</span>
+            </div>
         </div>
       </div>
     </div>
@@ -454,9 +504,59 @@
       <h2 class="section-title"><span class="en">Theme Outlets</span><span class="zh">主题门店</span></h2>
       <p class="section-subtitle"><span class="en">Discover our cute stores across Singapore.</span><span class="zh">探索我们在新加坡各地的可爱门店。</span></p>
       <div class="theme-grid">
-        <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_Chinatown.png" alt="牛车水总店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=牛车水总店';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Sinnkawa礼品店 - 牛车水总店</span><span class="en">Sinnkawa Gift Store - Chinatown</span></h3><p class="card-desc"><span class="zh">新加坡牛车水大街，主门店，红色灯笼特色。</span><span class="en">Main outlet at Chinatown, featuring red lanterns.</span></p><div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div></div></div>
-        <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_68_BW_Theme..png" alt="黑白主题店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=黑白主题店';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Sinnkawa礼品店 - 黑白主题店 (68号)</span><span class="en">Sinnkawa Gift Store - B&W Theme (68)</span></h3><p class="card-desc"><span class="zh">极简黑白色调设计。</span><span class="en">Minimalist black & white design.</span></p><div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/cPchyEaSGGsMjbg99" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div></div></div>
-        <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_43_Haji_Lane_Megastore_Experience_Zone..png" alt="旗舰体验店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=旗舰体验店';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Sinnkawa旗舰体验店 (43号)</span><span class="en">Sinnkawa Megastore & Experience Zone (43)</span></h3><p class="card-desc"><span class="zh">宽敞空间，互动体验区，蓝色主题。</span><span class="en">Wide space, interactive zone, blue theme.</span></p><div class="card-actions"></div></div></div>
+        <div class="theme-card">
+          <div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_Chinatown.png" alt="牛车水总店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=牛车水总店';"></div>
+          <div class="card-content">
+            <h3 class="card-title"><span class="zh">Sinnkawa礼品店 - 牛车水总店</span><span class="en">Sinnkawa Gift Store - Chinatown</span></h3>
+            <p class="card-desc"><span class="zh">新加坡牛车水大街，主门店，红色灯笼特色。</span><span class="en">Main outlet at Chinatown, featuring red lanterns.</span></p>
+            <div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div>
+          </div>
+        </div>
+
+        <div class="theme-card">
+          <div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_22_Haji_Lane.png" alt="哈芝巷22号" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=哈芝巷22号';"></div>
+          <div class="card-content">
+            <h3 class="card-title"><span class="zh">Sinnkawa礼品店 - 哈芝巷22号 (红黄)</span><span class="en">Sinnkawa Gift Store - 22 Haji Lane</span></h3>
+            <p class="card-desc"><span class="zh">涂鸦墙背景，潮玩元素。</span><span class="en">Graffiti wall background, trendy toys.</span></p>
+            <div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/NgZPfmMp2egFZhAQ7" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div>
+          </div>
+        </div>
+
+        <div class="theme-card">
+          <div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_68_BW_Theme..png" alt="黑白主题店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=黑白主题店';"></div>
+          <div class="card-content">
+            <h3 class="card-title"><span class="zh">Sinnkawa礼品店 - 黑白主题店 (68号)</span><span class="en">Sinnkawa Gift Store - B&W Theme (68)</span></h3>
+            <p class="card-desc"><span class="zh">极简黑白色调设计。</span><span class="en">Minimalist black & white design.</span></p>
+            <div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/cPchyEaSGGsMjbg99" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div>
+          </div>
+        </div>
+
+        <div class="theme-card">
+          <div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_43_Haji_Lane_Megastore_Experience_Zone..png" alt="旗舰体验店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=旗舰体验店';"></div>
+          <div class="card-content">
+            <h3 class="card-title"><span class="zh">Sinnkawa旗舰体验店 (43号)</span><span class="en">Sinnkawa Megastore & Experience Zone (43)</span></h3>
+            <p class="card-desc"><span class="zh">宽敞空间，互动体验区，蓝色主题。</span><span class="en">Wide space, interactive zone, blue theme.</span></p>
+            <div class="card-actions"></div>
+          </div>
+        </div>
+
+        <div class="theme-card">
+          <div class="store-img-wrapper"><img class="store-img" src="Soul_Art_Art_IP_62_Haji.png" alt="Soul Art" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=Soul Art';"></div>
+          <div class="card-content">
+            <h3 class="card-title"><span class="zh">Soul Art - 艺术与IP (62号)</span><span class="en">Soul Art - Art & IP (62 Haji)</span></h3>
+            <p class="card-desc"><span class="zh">插画作品，艺术周边，文艺氛围。</span><span class="en">Artworks, IP products, artistic atmosphere.</span></p>
+            <div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/QHbdCKU81UJwMuX27" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div>
+          </div>
+        </div>
+
+        <div class="theme-card">
+          <div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_THEME_Cafe_Chinatown1.png" alt="主题咖啡厅" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=主题咖啡厅';"></div>
+          <div class="card-content">
+            <h3 class="card-title"><span class="zh">Sinnkawa主题咖啡厅 - 牛车水</span><span class="en">Sinnkawa THEME Café - Chinatown</span></h3>
+            <p class="card-desc"><span class="zh">鱼尾狮造型饮品，卡通主题餐桌。</span><span class="en">Merlion drinks, cartoon-themed tables.</span></p>
+            <div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -492,6 +592,7 @@
 
   <div class="floating-buttons">
     <a href="https://wa.me/6597759906" target="_blank" class="fab fab-whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <button class="fab fab-lang" onclick="toggleLang()"><span class="en">中</span><span class="zh">EN</span></button>
     <div class="fab fab-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
   </div>
 
