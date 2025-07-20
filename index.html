@@ -132,17 +132,12 @@
     .logo-slogan-wrapper { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 30px; }
     .logo-img { width: 180px; transition: transform 0.4s ease; }
     .logo-img:hover { transform: rotate(5deg) scale(1.05); }
-    .brand-slogan-card {
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(8px);
+    .family-img {
+      width: 100%;
+      max-width: 360px;
       border-radius: var(--border-radius-md);
-      padding: 15px 30px;
-      font-size: 1.2rem;
-      font-weight: 500;
-      color: var(--text2);
-      text-shadow: 0 1px 3px rgba(255,255,255,0.5);
-      transition: var(--transition);
-      border: 1px solid rgba(255, 255, 255, 0.7);
+      margin: 0 auto 20px;
+      display: block;
     }
     .countdown-wrapper {
       padding: 25px;
@@ -386,7 +381,6 @@
       section { padding: 40px 0; }
       .container { padding: 0 16px; }
       .logo-img { width: 150px; }
-      .brand-slogan-card { font-size: 1rem; padding: 12px 25px; }
       .countdown-title { font-size: 1.1rem; }
       #countdown { gap: 10px; }
       .time-block { min-width: 60px; padding: 8px; }
@@ -406,9 +400,6 @@
     <div class="container">
       <div class="logo-slogan-wrapper">
         <img src="Sinnkawa_logo.png" alt="Sinnkawa Logo" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/180x100/C6E3F9/3D405B?text=Sinnkawa';">
-        <div class="brand-slogan-card">
-          <img src="Sinnkawa_family_pic.png" alt="Sinnkawa Family" style="width:100%;max-width:360px;border-radius:var(--border-radius-md);">
-        </div>
       </div>
       
       <div class="countdown-wrapper">
@@ -416,6 +407,7 @@
             <span class="en">SINNKAWA.COM.SG LAUNCHING SOON!</span>
             <span class="zh">SINNKAWA.COM.SG 官网即将上线！</span>
         </div>
+        <img src="Sinnkawa_family_pic.png" alt="Sinnkawa Family" class="family-img">
         <div id="countdown">
             <div class="time-block"><span id="days">00</span><span class="label zh">天</span><span class="label en">Days</span></div>
             <div class="time-block"><span id="hours">00</span><span class="label zh">小时</span><span class="label en">Hours</span></div>
