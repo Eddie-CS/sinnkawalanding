@@ -166,14 +166,26 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-    .new-features-desc {
-        font-size: 1rem;
+    .feature-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.1rem;
         color: var(--text2);
         max-width: 500px;
         margin: 0 auto;
         font-weight: 500;
     }
-    .new-features-desc i { margin-right: 8px; color: var(--accent1); }
+    .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    .feature-item i {
+        font-size: 1.4rem;
+        color: var(--accent1);
+    }
 
     /* General Section Styling */
     .section-title {
@@ -413,9 +425,22 @@
             <div class="time-block"><span id="minutes">00</span><span class="label zh">分钟</span><span class="label en">Mins</span></div>
             <div class="time-block"><span id="seconds">00</span><span class="label zh">秒</span><span class="label en">Secs</span></div>
         </div>
-        <div class="new-features-desc">
-            <p class="zh"><i class="fas fa-shopping-bag"></i>线上订购，门店自提<br><i class="fas fa-truck"></i>全岛配送，直送到家<br><i class="fas fa-gift"></i>海量线上专属折扣来袭！</p>
-            <p class="en"><i class="fas fa-shopping-bag"></i>Order online, pick up in-store<br><i class="fas fa-truck"></i>Islandwide home delivery<br><i class="fas fa-gift"></i>Exclusive online promotions coming soon!</p>
+        <div class="feature-list">
+            <div class="feature-item">
+                <i class="fas fa-shopping-bag"></i>
+                <span class="zh">线上订购，门店自提</span>
+                <span class="en">Order online, pick up in-store</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-truck"></i>
+                <span class="zh">全岛配送，直送到家</span>
+                <span class="en">Islandwide home delivery</span>
+            </div>
+            <div class="feature-item">
+                <i class="fas fa-gift"></i>
+                <span class="zh">海量线上专属折扣来袭！</span>
+                <span class="en">Exclusive online promotions coming soon!</span>
+            </div>
         </div>
       </div>
     </div>
