@@ -330,6 +330,7 @@
     .fab-whatsapp { background: #25D366; }
     .fab-top { background: var(--gradient-accent); opacity: 0; visibility: hidden; transform: translateY(10px); }
     .fab-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .fab-lang { background: var(--gradient-btn); font-size: 1rem; color: var(--text2); }
     .modal-bg {
       position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5);
       backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center;
@@ -489,6 +490,7 @@
 
   <div class="floating-buttons">
     <a href="https://wa.me/6597759906" target="_blank" class="fab fab-whatsapp"><i class="fab fa-whatsapp"></i></a>
+    <button class="fab fab-lang" onclick="toggleLang()"><span class="en">中</span><span class="zh">EN</span></button>
     <div class="fab fab-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
   </div>
 
