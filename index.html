@@ -11,12 +11,12 @@
   <link rel="icon" href="Sinnkawa_logo.png">
   <style>
     :root {
-      /* Updated color palette with light sky blue */
-      --brand-primary: #C6E3F9;
-      --primary1: #a2d2ff;
-      --primary2: #bde0fe;
-      --accent1: #89CFF0; /* Light Sky Blue */
-      --accent2: #add8e6; /* Lighter Sky Blue */
+      /* Updated color palette */
+      --brand-primary: #b1f2f7;
+      --primary1: #b1f2f7;
+      --primary2: #d6f7fb;
+      --accent1: #1f3c88; /* Deep blue accent */
+      --accent2: #32527b;
       --text1: #3D405B;
       --text2: #5a7d9a;
       --gray1: #f8f9fa;
@@ -385,7 +385,7 @@
     }
   </style>
 </head>
-<body class="lang-cn">
+<body>
   <div class="background-icons" id="background-icons"></div>
   <div class="loader" id="loader"><div class="loader-spinner"></div></div>
 
@@ -398,8 +398,7 @@
       <div class="logo-slogan-wrapper">
         <img src="Sinnkawa_logo.png" alt="Sinnkawa Logo" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/180x100/C6E3F9/3D405B?text=Sinnkawa';">
         <div class="brand-slogan-card">
-          <span class="en">Making Singapore Cute, One Character at a Time! ✨</span>
-          <span class="zh">让新加坡更可爱，每个角色都闪耀！✨</span>
+          <img src="Sinnkawa_family_pic.png" alt="Sinnkawa Family" style="width:100%;max-width:240px;border-radius:var(--border-radius-md);">
         </div>
       </div>
       
@@ -448,44 +447,6 @@
         </div>
     </section>
     
-    <!-- Gemini AI Slogan Generator Section -->
-    <section class="interactive-section fade-in">
-        <h2 class="section-title"><span class="en">AI Creative Workshop</span><span class="zh">✨ AI 创意工坊 ✨</span></h2>
-        <p class="section-subtitle"><span class="en">Enter a keyword to generate a unique Sinnkawa slogan!</span><span class="zh">输入一个关键词，让AI为你生成专属Sinnkawa标语！</span></p>
-        <div class="ai-input-wrapper">
-            <input type="text" id="gemini-prompt-slogan" class="ai-input" placeholder="例如：开心、朋友、礼物" autocomplete="off">
-            <button id="gemini-button-slogan" class="ai-button" onclick="generateSlogan()">
-                <span class="en">Generate Slogan</span><span class="zh">生成标语</span>
-            </button>
-        </div>
-        <div id="gemini-result-slogan" class="ai-result"><span class="en">Your slogan will appear here...</span><span class="zh">你的专属标语将出现在这里...</span></div>
-    </section>
-
-    <!-- Gemini AI Story Generator Section -->
-    <section class="interactive-section fade-in">
-        <h2 class="section-title"><span class="en">AI Story Workshop</span><span class="zh">✨ AI 门店故事 ✨</span></h2>
-        <p class="section-subtitle"><span class="en">Select a store theme to generate a cute story!</span><span class="zh">选择一个门店主题，让AI为你讲述一个可爱故事！</span></p>
-        <div class="ai-input-wrapper">
-            <select id="gemini-prompt-story-theme" class="ai-select">
-                <option value="牛车水总店" class="zh">Sinnkawa礼品店 - 牛车水总店</option>
-                <option value="哈芝巷22号红黄主题" class="zh">Sinnkawa礼品店 - 哈芝巷22号 (红黄)</option>
-                <option value="黑白主题店" class="zh">Sinnkawa礼品店 - 黑白主题店 (68号)</option>
-                <option value="旗舰体验店" class="zh">Sinnkawa旗舰体验店 (43号)</option>
-                <option value="Soul Art艺术与IP店" class="zh">Soul Art - 艺术与IP (62号)</option>
-                <option value="主题咖啡厅" class="zh">Sinnkawa主题咖啡厅 - 牛车水</option>
-                <option value="Chinatown Main Store" class="en">Sinnkawa Gift Store - Chinatown</option>
-                <option value="Haji Lane Red & Yellow Theme" class="en">Sinnkawa Gift Store - 22 Haji Lane</option>
-                <option value="Black & White Theme Store" class="en">Sinnkawa Gift Store - B&W Theme (68)</option>
-                <option value="Megastore & Experience Zone" class="en">Sinnkawa Megastore & Experience Zone (43)</option>
-                <option value="Soul Art & IP Store" class="en">Soul Art - Art & IP (62 Haji)</option>
-                <option value="Theme Café" class="en">Sinnkawa THEME Café - Chinatown</option>
-            </select>
-            <button id="gemini-button-story" class="ai-button" onclick="generateStory()">
-                <span class="en">Generate Story</span><span class="zh">生成故事</span>
-            </button>
-        </div>
-        <div id="gemini-result-story" class="ai-result"><span class="en">Your story will appear here...</span><span class="zh">你的专属故事将出现在这里...</span></div>
-    </section>
 
     <!-- Theme Outlets Section -->
     <section class="theme-section fade-in">
@@ -493,11 +454,8 @@
       <p class="section-subtitle"><span class="en">Discover our cute stores across Singapore.</span><span class="zh">探索我们在新加坡各地的可爱门店。</span></p>
       <div class="theme-grid">
         <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_Chinatown.png" alt="牛车水总店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=牛车水总店';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Sinnkawa礼品店 - 牛车水总店</span><span class="en">Sinnkawa Gift Store - Chinatown</span></h3><p class="card-desc"><span class="zh">新加坡牛车水大街，主门店，红色灯笼特色。</span><span class="en">Main outlet at Chinatown, featuring red lanterns.</span></p><div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div></div></div>
-        <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_22_Haji_Lane.png" alt="哈芝巷22号" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=哈芝巷22号';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Sinnkawa礼品店 - 哈芝巷22号 (红黄)</span><span class="en">Sinnkawa Gift Store - 22 Haji Lane</span></h3><p class="card-desc"><span class="zh">涂鸦墙背景，潮玩元素。</span><span class="en">Graffiti wall background, trendy toys.</span></p><div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/NgZPfmMp2egFZhAQ7" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div></div></div>
-        <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_68_BW_Theme.png" alt="黑白主题店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=黑白主题店';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Sinnkawa礼品店 - 黑白主题店 (68号)</span><span class="en">Sinnkawa Gift Store - B&W Theme (68)</span></h3><p class="card-desc"><span class="zh">极简黑白色调设计。</span><span class="en">Minimalist black & white design.</span></p><div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/cPchyEaSGGsMjbg99" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div></div></div>
-        <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_43_Haji_Lane_Megastore_Experience_Zone.png" alt="旗舰体验店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=旗舰体验店';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Sinnkawa旗舰体验店 (43号)</span><span class="en">Sinnkawa Megastore & Experience Zone (43)</span></h3><p class="card-desc"><span class="zh">宽敞空间，互动体验区，蓝色主题。</span><span class="en">Wide space, interactive zone, blue theme.</span></p><div class="card-actions"></div></div></div>
-        <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Soul_Art_Art_IP_62_Haji.png" alt="Soul Art" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=Soul Art';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Soul Art - 艺术与IP (62号)</span><span class="en">Soul Art - Art & IP (62 Haji)</span></h3><p class="card-desc"><span class="zh">插画作品，艺术周边，文艺氛围。</span><span class="en">Artworks, IP products, artistic atmosphere.</span></p><div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/QHbdCKU81UJwMuX27" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div></div></div>
-        <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_THEME_Cafe_Chinatown1.png" alt="主题咖啡厅" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=主题咖啡厅';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Sinnkawa主题咖啡厅 - 牛车水</span><span class="en">Sinnkawa THEME Café - Chinatown</span></h3><p class="card-desc"><span class="zh">鱼尾狮造型饮品，卡通主题餐桌。</span><span class="en">Merlion drinks, cartoon-themed tables.</span></p<div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div></div></div>
+        <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_Gift_Store_68_BW_Theme..png" alt="黑白主题店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=黑白主题店';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Sinnkawa礼品店 - 黑白主题店 (68号)</span><span class="en">Sinnkawa Gift Store - B&W Theme (68)</span></h3><p class="card-desc"><span class="zh">极简黑白色调设计。</span><span class="en">Minimalist black & white design.</span></p><div class="card-actions"><a class="visit-btn" href="https://maps.app.goo.gl/cPchyEaSGGsMjbg99" target="_blank"><span class="zh">带我去</span><span class="en">Take me there</span><span class="icon"><i class="fas fa-map-marker-alt"></i></span></a></div></div></div>
+        <div class="theme-card"><div class="store-img-wrapper"><img class="store-img" src="Sinnkawa_43_Haji_Lane_Megastore_Experience_Zone..png" alt="旗舰体验店" onerror="this.onerror=null;this.src='https://placehold.co/400x240/89CFF0/ffffff?text=旗舰体验店';"></div><div class="card-content"><h3 class="card-title"><span class="zh">Sinnkawa旗舰体验店 (43号)</span><span class="en">Sinnkawa Megastore & Experience Zone (43)</span></h3><p class="card-desc"><span class="zh">宽敞空间，互动体验区，蓝色主题。</span><span class="en">Wide space, interactive zone, blue theme.</span></p><div class="card-actions"></div></div></div>
       </div>
     </section>
 
@@ -590,21 +548,8 @@
       
       // --- Language Toggle ---
       window.toggleLang = () => {
-        const isChinese = document.body.classList.toggle('lang-cn');
-        document.querySelectorAll('#gemini-prompt-story-theme option').forEach(opt => {
-            if (isChinese) {
-                opt.style.display = opt.classList.contains('zh') ? '' : 'none';
-            } else {
-                opt.style.display = opt.classList.contains('en') ? '' : 'none';
-            }
-        });
-        const firstVisibleOption = document.querySelector('#gemini-prompt-story-theme option[style=""]');
-        if(firstVisibleOption) {
-            document.getElementById('gemini-prompt-story-theme').value = firstVisibleOption.value;
-        }
+        document.body.classList.toggle('lang-cn');
       };
-      toggleLang();
-      toggleLang(); 
       
       // --- Game Logic ---
       const gameContainer = document.getElementById('game-container');
@@ -732,84 +677,6 @@
 
     });
 
-    // --- Generic Gemini API Caller ---
-    async function callGemini(prompt, button, resultDiv) {
-        button.classList.add('loading');
-        const originalButtonText = button.innerHTML;
-        const langClass = document.body.classList.contains('lang-cn') ? 'zh' : 'en';
-        const loadingText = langClass === 'zh' ? '生成中...' : 'Generating...';
-        button.innerHTML = `<div class="spinner"></div> <span class="${langClass}">${loadingText}</span>`;
-        button.disabled = true;
-        resultDiv.innerText = '...';
-
-        try {
-            let chatHistory = [{ role: "user", parts: [{ text: prompt }] }];
-            const payload = { contents: chatHistory };
-            const apiKey = ""; // API key will be provided by the environment
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-            
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-
-            if (!response.ok) { throw new Error(`API Error: ${response.statusText}`); }
-
-            const result = await response.json();
-            
-            if (result.candidates && result.candidates[0]?.content?.parts?.[0]) {
-                const text = result.candidates[0].content.parts[0].text;
-                resultDiv.innerText = text.replace(/["*]/g, ''); // Clean up response
-            } else {
-                throw new Error('Invalid response structure from API.');
-            }
-
-        } catch (error) {
-            console.error("Gemini API call failed:", error);
-            const errorText = langClass === 'zh' ? '抱歉，创意灵感暂时走丢了，请稍后再试！' : 'Sorry, inspiration is lost. Please try again later!';
-            resultDiv.innerText = errorText;
-        } finally {
-            button.classList.remove('loading');
-            button.innerHTML = originalButtonText;
-            button.disabled = false;
-        }
-    }
-
-    // --- Gemini Slogan Function ---
-    async function generateSlogan() {
-        const promptInput = document.getElementById('gemini-prompt-slogan');
-        const button = document.getElementById('gemini-button-slogan');
-        const resultDiv = document.getElementById('gemini-result-slogan');
-        const userKeyword = promptInput.value.trim();
-        const langClass = document.body.classList.contains('lang-cn') ? 'zh' : 'en';
-
-        if (!userKeyword) {
-            resultDiv.innerText = langClass === 'zh' ? '请输入一个关键词！' : 'Please enter a keyword!';
-            return;
-        }
-        
-        const prompt = langClass === 'zh' 
-            ? `你是一个新加坡可爱潮玩品牌 Sinnkawa 的创意AI助手。请根据用户提供的关键词“${userKeyword}”，创作一句简短、押韵、可爱、朗朗上口的中文品牌标语。`
-            : `You are a creative AI assistant for Sinnkawa, a cute culture brand from Singapore. Based on the user's keyword "${userKeyword}", create a short, catchy, and cute brand slogan in English.`;
-
-        await callGemini(prompt, button, resultDiv);
-    }
-
-    // --- Gemini Story Function ---
-    async function generateStory() {
-        const themeSelect = document.getElementById('gemini-prompt-story-theme');
-        const button = document.getElementById('gemini-button-story');
-        const resultDiv = document.getElementById('gemini-result-story');
-        const selectedTheme = themeSelect.value;
-        const langClass = document.body.classList.contains('lang-cn') ? 'zh' : 'en';
-
-        const prompt = langClass === 'zh'
-            ? `你是一位充满想象力的故事作家，为新加坡可爱潮玩品牌 Sinnkawa 撰写品牌故事。Sinnkawa 有一群可爱的家族角色。请根据用户选择的门店主题“[${selectedTheme}]”，创作一个100字左右的、关于Sinnkawa家族成员在这个主题场景下发生的可爱、温馨、有趣的小故事。`
-            : `You are an imaginative storyteller for Sinnkawa, a cute culture brand from Singapore with a family of cute characters. Based on the user-selected store theme "[${selectedTheme}]", write a cute, heartwarming, and fun short story (about 80 words) about the Sinnkawa family characters in that setting.`;
-
-        await callGemini(prompt, button, resultDiv);
-    }
   </script>
 </body>
 </html>
