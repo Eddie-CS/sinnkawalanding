@@ -12,11 +12,11 @@
   <style>
     :root {
       /* Updated color palette */
-      --brand-primary: #b1f2f7;
-      --primary1: #b1f2f7;
-      --primary2: #d6f7fb;
-      --accent1: #1f3c88; /* Deep blue accent */
-      --accent2: #32527b;
+      --brand-primary: #c6e3ff;
+      --primary1: #b3d8ff;
+      --primary2: #dff1ff;
+      --accent1: #4a90e2; /* Bright blue accent */
+      --accent2: #6bb7ff;
       --text1: #3D405B;
       --text2: #5a7d9a;
       --gray1: #f8f9fa;
@@ -171,12 +171,6 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-    .feature-list {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        font-size: 1.1rem;
         color: var(--text2);
         max-width: 500px;
         margin: 0 auto;
@@ -215,9 +209,15 @@
       display: flex; align-items: center; gap: 12px; font-size: 1.1rem;
       font-weight: 500; color: #fff; border-radius: var(--border-radius-md);
       box-shadow: var(--shadow); padding: 14px 28px; text-decoration: none;
-      transition: var(--transition); border: none;
+      transition: var(--transition), background-position 0.5s;
+      border: none; background-size: 200% auto;
     }
-    .social-btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: var(--shadow-hover); }
+    .social-btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: var(--shadow-hover);
+      animation: shake 0.4s;
+      background-position: right center;
+    }
     .social-btn .icon { font-size: 1.5rem; }
     .social-btn.xhs { background: linear-gradient(135deg, #FF2442 0%, #FF607E 100%); }
     .social-btn.ig { background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045); }
@@ -242,11 +242,15 @@
     .theme-card .visit-btn {
       background: var(--gradient-btn); color: #fff; border: none;
       border-radius: var(--border-radius-sm); padding: 12px 24px; font-size: 1rem;
-      font-weight: 500; cursor: pointer; transition: var(--transition);
+      font-weight: 500; cursor: pointer; transition: var(--transition), background-position 0.5s;
       text-decoration: none; display: inline-flex; align-items: center;
-      justify-content: center; gap: 8px; align-self: flex-start;
+      justify-content: center; gap: 8px; align-self: flex-start; background-size: 200% auto;
     }
-    .theme-card .visit-btn:hover { transform: translateY(-3px) scale(1.05); }
+    .theme-card .visit-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      animation: shake 0.4s;
+      background-position: right center;
+    }
     .theme-card .card-actions { min-height: 46px; } /* Placeholder for button */
 
     /* AI & Game Sections */
@@ -263,10 +267,15 @@
     .ai-button {
         background: var(--gradient-accent); color: white; border: none;
         border-radius: var(--border-radius-md); padding: 12px 25px; font-size: 1rem;
-        font-weight: 500; cursor: pointer; transition: var(--transition);
-        display: inline-flex; align-items: center; gap: 8px;
+        font-weight: 500; cursor: pointer; transition: var(--transition), background-position 0.5s;
+        display: inline-flex; align-items: center; gap: 8px; background-size: 200% auto;
     }
-    .ai-button:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+    .ai-button:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow);
+        animation: shake 0.4s;
+        background-position: right center;
+    }
     .ai-button.loading { cursor: not-allowed; filter: grayscale(0.5); }
     .spinner {
         width: 18px; height: 18px; border: 2px solid rgba(255,255,255,0.3);
@@ -295,6 +304,11 @@
     .game-button {
         background: var(--gradient-btn); color: white;
         padding: 10px 20px; font-size: 1rem; margin: 0 10px;
+        transition: var(--transition), background-position 0.5s; background-size: 200% auto;
+    }
+    .game-button:hover {
+        animation: shake 0.4s;
+        background-position: right center;
     }
     #score-board {
         position: absolute;
@@ -331,9 +345,13 @@
     .footer-link {
       font-size: 1rem; color: var(--text2); background: rgba(255,255,255,0.3);
       border-radius: var(--border-radius-md); padding: 8px 20px;
-      font-weight: 500; transition: var(--transition); cursor: pointer;
+      font-weight: 500; transition: var(--transition), background-position 0.5s; cursor: pointer;
+      background-size: 200% auto;
     }
-    .footer-link:hover { background: #fff; color: var(--accent1); transform: translateY(-3px); }
+    .footer-link:hover {
+      background: #fff; color: var(--accent1); transform: translateY(-3px);
+      animation: shake 0.4s; background-position: right center;
+    }
     .copyright { color: var(--text2); font-size: 0.9rem; margin-top: 20px; opacity: 0.8; }
     
     /* Floating & Modal */
@@ -341,9 +359,15 @@
     .fab {
       width: 50px; height: 50px; color: white; border-radius: 50%; display: flex;
       align-items: center; justify-content: center; font-size: 1.5rem;
-      box-shadow: var(--shadow); cursor: pointer; transition: var(--transition); text-decoration: none;
+      box-shadow: var(--shadow); cursor: pointer; transition: var(--transition), background-position 0.5s; text-decoration: none;
+      background-size: 200% auto;
     }
-    .fab:hover { transform: translateY(-5px) scale(1.1); box-shadow: var(--shadow-hover); }
+    .fab:hover {
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: var(--shadow-hover);
+      animation: shake 0.4s;
+      background-position: right center;
+    }
     .fab-whatsapp { background: #25D366; }
     .fab-top { background: var(--gradient-accent); opacity: 0; visibility: hidden; transform: translateY(10px); }
     .fab-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
@@ -371,9 +395,13 @@
     .whatsapp-modal-btn {
       display: inline-flex; align-items: center; gap: 10px; background: #25D366;
       color: white; padding: 12px 25px; border-radius: var(--border-radius-md);
-      text-decoration: none; font-weight: 500; transition: var(--transition);
+      text-decoration: none; font-weight: 500;
+      transition: var(--transition), background-position 0.5s; background-size: 200% auto;
     }
-    .whatsapp-modal-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+    .whatsapp-modal-btn:hover {
+      transform: scale(1.05); filter: brightness(1.1);
+      animation: shake 0.4s; background-position: right center;
+    }
     
     /* Loader & Animations */
     .loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--gradient-bg); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s 0.5s ease, visibility 0s 1s; }
