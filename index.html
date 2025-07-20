@@ -330,32 +330,6 @@
     .fab-whatsapp { background: #25D366; }
     .fab-top { background: var(--gradient-accent); opacity: 0; visibility: hidden; transform: translateY(10px); }
     .fab-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
-    .modal-bg {
-      position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5);
-      backdrop-filter: blur(8px); display: flex; justify-content: center; align-items: center;
-      z-index: 999; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0s 0.3s;
-    }
-    .modal-bg.active { opacity: 1; visibility: visible; transition: opacity 0.3s ease; }
-    .modal-card {
-      background: #fff; border-radius: var(--border-radius-lg); box-shadow: 0 16px 60px rgba(0,0,0,0.2);
-      width: 90%; max-width: 450px; padding: 30px; text-align: center; color: var(--text2);
-      font-size: 1.05rem; position: relative; transform: scale(0.95); transition: transform 0.3s ease;
-    }
-    .modal-bg.active .modal-card { transform: scale(1); }
-    .modal-close {
-      position: absolute; top: 15px; right: 15px; background: var(--gray2); color: var(--text1);
-      border: none; border-radius: 50%; font-size: 1.2rem; width: 34px; height: 34px;
-      cursor: pointer; transition: var(--transition); display: flex; align-items: center; justify-content: center;
-    }
-    .modal-close:hover { background: var(--accent1); color: #fff; transform: rotate(90deg); }
-    .modal-title { font-size:1.8rem; font-weight:700; color: var(--text2); margin-bottom: 25px; }
-    .modal-content { margin-bottom: 25px; }
-    .whatsapp-modal-btn {
-      display: inline-flex; align-items: center; gap: 10px; background: #25D366;
-      color: white; padding: 12px 25px; border-radius: var(--border-radius-md);
-      text-decoration: none; font-weight: 500; transition: var(--transition);
-    }
-    .whatsapp-modal-btn:hover { transform: scale(1.05); filter: brightness(1.1); }
     
     /* Loader & Animations */
     .loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--gradient-bg); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.5s 0.5s ease, visibility 0s 1s; }
@@ -463,18 +437,13 @@
     <section class="company-section fade-in">
       <h2 class="section-title"><span class="en">About Us</span><span class="zh">关于我们</span></h2>
       <p class="section-subtitle"><span class="en">Get in touch or learn more about our mission.</span><span class="zh">联系我们或了解更多关于我们的使命。</span></p>
-      <button class="social-btn" style="background: var(--gradient-btn);" onclick="showModal()"><span class="icon"><i class="fas fa-info-circle"></i></span><span class="en">Company Profile</span><span class="zh">公司简介</span></button>
+      <div class="company-content">
+        <p><span class="en">Sinnkawa Singapore is dedicated to promoting cute culture in Singapore through art, retail, and themed experiences. For business or collaboration inquiries, please contact us.</span><span class="zh">Sinnkawa Singapore 致力于通过艺术、零售和主题体验，在新加坡推广可爱、有趣的文化。如有商业或合作意向，请随时与我们联系。</span></p>
+        <a href="https://wa.me/6597759906" target="_blank" class="social-btn wa"><span class="icon"><i class="fab fa-whatsapp"></i></span><span>WhatsApp</span></a>
+      </div>
     </section>
   </main>
 
-  <div class="modal-bg" id="modal-bg">
-    <div class="modal-card">
-      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-      <h3 class="modal-title"><span class="en">Company Profile</span><span class="zh">公司简介</span></h3>
-      <div class="modal-content"><p><span class="en">Sinnkawa Singapore is dedicated to promoting cute culture in Singapore through art, retail, and themed experiences. For business or collaboration inquiries, please contact us.</span><span class="zh">Sinnkawa Singapore 致力于通过艺术、零售和主题体验，在新加坡推广可爱、有趣的文化。如有商业或合作意向，请随时与我们联系。</span></p></div>
-      <a href="https://wa.me/6597759906" target="_blank" class="whatsapp-modal-btn"><i class="fab fa-whatsapp"></i><span>WhatsApp</span></a>
-    </div>
-  </div>
 
   <footer>
     <img src="Sinnkawa_footer.png" alt="Footer Mascot" class="footer-mascot" onerror="this.onerror=null;this.src='https://placehold.co/120x120/C6E3F9/3D405B?text=Sinnkawa';">
@@ -521,12 +490,6 @@
         document.getElementById("seconds").innerText = String(s).padStart(2, '0');
       }, 1000);
       
-      // --- Modal ---
-      const modalBg = document.getElementById('modal-bg');
-      window.showModal = () => { modalBg.classList.add('active'); document.body.style.overflow = 'hidden'; };
-      window.closeModal = () => { modalBg.classList.remove('active'); document.body.style.overflow = ''; };
-      modalBg.addEventListener('click', (e) => { if (e.target === modalBg) closeModal(); });
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
       // --- Floating Buttons & Back to Top ---
       const backToTopBtn = document.getElementById('backToTop');
