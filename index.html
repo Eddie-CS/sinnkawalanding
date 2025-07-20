@@ -256,7 +256,7 @@
     }
 
     /* Theme Outlets */
-    .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+    .theme-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     .theme-card {
       background: #fff; border-radius: var(--border-radius-md); box-shadow: var(--shadow);
       overflow: hidden; transition: var(--transition); display: flex;
@@ -277,15 +277,15 @@
       background: var(--gradient-btn); color: #fff; border: none;
       border-radius: var(--border-radius-sm); padding: 12px 24px; font-size: 1rem;
       font-weight: 500; cursor: pointer; transition: var(--transition), background-position 0.5s;
-      text-decoration: none; display: inline-flex; align-items: center;
-      justify-content: center; gap: 8px; align-self: flex-start; background-size: 200% auto;
+      text-decoration: none; display: flex; align-items: center; justify-content: center;
+      gap: 8px; width: 100%; background-size: 200% auto;
     }
     .theme-card .visit-btn:hover {
       transform: translateY(-3px) scale(1.05);
       animation: shake 0.4s;
       background-position: right center;
     }
-    .theme-card .card-actions { min-height: 46px; } /* Placeholder for button */
+    .theme-card .card-actions { margin-top: auto; min-height: 46px; }
 
     /* Footer */
     footer {
@@ -347,6 +347,11 @@
     .loader.hidden { opacity: 0; visibility: hidden; }
     .loader-spinner { width: 60px; height: 60px; border: 5px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: var(--accent1); animation: spin 1s ease-in-out infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-3px); }
+      40%, 80% { transform: translateX(3px); }
+    }
     .zh { display: none; }
     .lang-cn .en { display: none; }
     .lang-cn .zh { display: inline; }
@@ -366,7 +371,7 @@
       .section-title { font-size: 2rem; }
       .social-btn { padding: 12px 20px; font-size: 1rem; }
       .fab { width: 45px; height: 45px; font-size: 1.3rem; }
-      .theme-card.featured { grid-column: span 1; }
+
     }
   </style>
 </head>
