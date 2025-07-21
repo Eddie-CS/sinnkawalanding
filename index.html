@@ -132,12 +132,18 @@
     .logo-img { width: 180px; transition: transform 0.4s ease; }
     .logo-img:hover { transform: rotate(5deg) scale(1.05); }
     .logo-tagline { font-family: "Baloo 2", "Noto Sans SC", sans-serif; font-size: 1.2rem; color: var(--text2); text-align: center; }
-    .family-img {
+    .slogan-image {
       width: 100%;
-      max-width: 360px;
+      max-width: 600px;
       border-radius: var(--border-radius-md);
       margin: 0 auto 20px;
       display: block;
+    }
+    .countdown-description {
+      text-align: center;
+      font-size: 1.2rem;
+      color: var(--text2);
+      margin-bottom: 20px;
     }
     .countdown-wrapper {
       padding: 25px;
@@ -492,6 +498,8 @@
       .container { padding: 0 16px; }
       .logo-img { width: 150px; }
       .countdown-title { font-size: 1.1rem; }
+      .countdown-description { font-size: 1.1rem; }
+      .slogan-image { max-width: 100%; }
       #countdown { gap: 10px; }
       .time-block { min-width: 60px; padding: 10px 8px; }
       .time-block span { font-size: 1.8rem; }
@@ -518,13 +526,16 @@
     <div class="container">
       <div class="logo-slogan-wrapper">
         <img src="Sinnkawa_logo.png" alt="Sinnkawa Logo" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/180x100/C6E3F9/3D405B?text=Sinnkawa';">
+        <img src="Sinnkawa_family_pic.png" alt="Sinnkawa Family" class="slogan-image" onerror="this.onerror=null;this.src='https://placehold.co/600x225/C6E3F9/3D405B?text=Sinnkawa+Family';">
       </div>
 
       <div class="countdown-wrapper">
-        <img src="Sinnkawa_family_pic.png" alt="Sinnkawa Family" class="family-img" onerror="this.onerror=null;this.src='https://placehold.co/360x200/FFFFFF/3D405B?text=Sinnkawa+Family';">
-        <div class="countdown-title">
-            <span class="zh">Let‘s Countdown！SINNKAWA®官网即将上线</span>
-            <span class="en">Let‘s Countdown！SINNKAWA®’s official website launching in</span>
+        <div class="countdown-description">
+            <p>
+                <span class="zh"><strong>SINNKAWA®官网很快就可以与大家见面啦 跟我们一起倒数上线～</strong>🎈</span>
+                <br><br>
+                <span class="en">✨ <strong>Official Website Launching Soon! Join us for the countdown～</strong>🎈</span>
+            </p>
         </div>
         <div id="countdown">
             <div class="time-block"><span id="days">00</span><span class="label en">Days</span><span class="label zh">天</span></div>
