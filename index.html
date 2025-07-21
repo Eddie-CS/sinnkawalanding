@@ -9,7 +9,6 @@
   <!-- Added Orbitron font for the countdown -->
   <link href='https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fredoka:wght@400;500;700&family=Indie+Flower&family=Orbitron:wght@700&display=swap' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <!-- MODIFICATION: Changed favicon -->
   <link rel="icon" href="网站缩略图.png">
   <style>
     :root {
@@ -136,7 +135,6 @@
       transition: var(--transition);
     }
     .lang-switch:hover { background: white; box-shadow: var(--shadow); }
-    /* MODIFICATION: Increased gap for more space */
     .logo-slogan-wrapper { display: flex; flex-direction: column; align-items: center; gap: 40px; margin-bottom: 50px; }
     .logo-img { width: 240px; transition: transform 0.4s ease; }
     .logo-img:hover { transform: rotate(5deg) scale(1.05); }
@@ -216,6 +214,7 @@
       font-size: 0.8rem;
       opacity: 0.9;
       margin-top: 5px;
+      line-height: 1.2; /* MODIFICATION: Adjust line height for two lines */
     }
 
     .feature-grid {
@@ -497,15 +496,11 @@
       border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
       margin-top: 60px; position: relative;
     }
+    /* MODIFICATION: Removed container styles from footer mascot */
     .footer-mascot {
-       width: 120px;
-       height: 120px;
-       border-radius: 50%;
-       object-fit: cover;
+       max-width: 240px; /* Control size */
+       height: auto;
        margin: 0 auto 30px auto;
-       background: #fff;
-       box-shadow: var(--shadow);
-       border: 4px solid white;
      }
     .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
     .footer-link {
@@ -533,7 +528,6 @@
         color: var(--accent2);
     }
     .copyright { color: var(--text2); font-size: 0.9rem; margin-top: 20px; opacity: 0.8; }
-    /* MODIFICATION: Added legal notice style */
     .legal-notice {
         color: var(--text2);
         font-size: 0.8rem;
@@ -626,10 +620,11 @@
             </p>
         </div>
         <div id="countdown">
-            <div class="time-block"><span id="days">00</span><span class="label en">Days</span><span class="label zh">天</span></div>
-            <div class="time-block"><span id="hours">00</span><span class="label en">Hours</span><span class="label zh">小时</span></div>
-            <div class="time-block"><span id="minutes">00</span><span class="label en">Mins</span><span class="label zh">分钟</span></div>
-            <div class="time-block"><span id="seconds">00</span><span class="label en">Secs</span><span class="label zh">秒</span></div>
+            <!-- MODIFICATION: Added <br> to labels for two-line display -->
+            <div class="time-block"><span id="days">00</span><span class="label en">Da<br>ys</span><span class="label zh">天<br>&nbsp;</span></div>
+            <div class="time-block"><span id="hours">00</span><span class="label en">Ho<br>urs</span><span class="label zh">小<br>时</span></div>
+            <div class="time-block"><span id="minutes">00</span><span class="label en">Mi<br>ns</span><span class="label zh">分<br>钟</span></div>
+            <div class="time-block"><span id="seconds">00</span><span class="label en">Se<br>cs</span><span class="label zh">秒<br>&nbsp;</span></div>
         </div>
 
         <div class="feature-grid">
@@ -713,7 +708,7 @@
             <h3 class="store-title"><span class="en">SINNKAWA®@43 Haji Lane</span><span class="zh">SINNKAWA®@43 哈芝巷</span></h3>
             <p class="store-desc"><span class="en">Interactive experience zone with large format displays and blue-themed design.</span><span class="zh">互动体验区，配备大幅展示和蓝色主题设计。</span>
             </p>
-             <a href="https://maps.app.goo.gl/4CJjL2YQxG5aYm2u6" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
+             <!-- MODIFICATION: Button removed as requested -->
           </div>
 
           <div class="store-card">
@@ -785,7 +780,7 @@
   </main>
 
   <footer>
-    <img src="footer举牌.jpg" alt="Footer Mascot" class="footer-mascot" onerror="this.onerror=null;this.src='https://placehold.co/120x120/C6E3F9/3D405B?text=SINNKAWA®';">
+    <img src="footer举牌.jpg" alt="Footer Mascot" class="footer-mascot" onerror="this.onerror=null;this.src='https://placehold.co/240x240/C6E3F9/3D405B?text=SINNKAWA®';">
     <div class="footer-links">
         <a class="footer-link" href="https://www.xiaohongshu.com/user/profile/664f08440000000003030e90?xsec_token=YBRqAoXrpd8BnbO2cGTwZHw24jB3u5iigY3BzJh94q3Ms=&xsec_source=app_share&xhsshare=CopyLink&appuid=5a8ded9f4eacab3148139220&apptime=1753039735&share_id=c2b6eba803514ef8b0dbe61670f159f9" target="_blank">
           <img src="小红书footer.png.png" alt="小红书" />
