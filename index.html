@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SINNKAWA®- Singapore Meets Cuteness </title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href='https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fredoka:wght@400;500;700&family=Indie+Flower&display=swap' rel='stylesheet'>
+  <!-- Added Orbitron font for the countdown -->
+  <link href='https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fredoka:wght@400;500;700&family=Indie+Flower&family=Orbitron:wght@700&display=swap' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="icon" href="Sinnkawa_logo.png">
   <style>
@@ -31,7 +32,7 @@
       --gradient-accent: linear-gradient(135deg, var(--accent1) 0%, var(--accent2) 100%);
       --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     }
-    
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -50,7 +51,6 @@
     }
     section:last-of-type { border-bottom: none; }
     img { max-width: 100%; height: auto; display: block; }
-
     /* New Background Icons */
     .background-icons {
         position: fixed;
@@ -80,18 +80,17 @@
         100% { transform: translateY(0px) rotate(0deg); }
     }
 
-
     ::-webkit-scrollbar { width: 8px; }
     ::-webkit-scrollbar-track { background: var(--gray2); }
     ::-webkit-scrollbar-thumb { background: var(--primary1); border-radius: 10px; }
     ::-webkit-scrollbar-thumb:hover { background: var(--accent1); }
-    
+
     /* Header & Countdown */
     header {
       background: var(--gradient-bg);
       box-shadow: var(--shadow);
       border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
-      padding: 40px 0;
+      padding: 60px 0;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -157,42 +156,97 @@
       margin-bottom: 20px;
       animation: bounce 1.5s infinite;
     }
-
     @keyframes bounce {
       0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
       40% { transform: translateY(-15px); }
       60% { transform: translateY(-8px); }
     }
     #countdown { display: flex; justify-content: center; gap: 15px; margin-bottom: 25px; }
+
+    /* --- NEW COUNTDOWN STYLE --- */
     .time-block {
-      background: var(--gradient-accent);
+      background-color: rgba(0, 0, 0, 0.5); /* Dark, semi-transparent background */
       color: white;
-      padding: 10px;
+      padding: 15px;
       border-radius: var(--border-radius-sm);
-      min-width: 70px;
-      box-shadow: 0 5px 15px rgba(137, 207, 240, 0.4);
-      animation: pulse 2s infinite;
+      min-width: 80px;
+      text-align: center;
+      position: relative; /* Essential for the pseudo-element */
+      overflow: hidden; /* Hide overflowing parts of the pseudo-element */
     }
-    .time-block span { display: block; font-size: 2rem; font-weight: 700; }
-    .time-block .label { font-size: 0.8rem; opacity: 0.9; }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+
+    .time-block::before {
+        content: '';
+        position: absolute;
+        top: -4px; left: -4px;
+        width: calc(100% + 8px);
+        height: calc(100% + 8px);
+        z-index: -1; /* Place it behind the content */
+        background: linear-gradient(
+            45deg,
+            orangered,
+            gold,
+            yellow,
+            gold,
+            orangered
+        );
+        background-size: 400% 400%;
+        border-radius: var(--border-radius-md); /* Match the parent's rounding */
+        animation: glowing-border 4s linear infinite;
     }
-        color: var(--text2);
-        max-width: 500px;
-        margin: 0 auto;
-        font-weight: 500;
+
+    /* Keyframes for the glowing border animation */
+    @keyframes glowing-border {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
     }
-    .feature-item {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+
+    .time-block span {
+      display: block;
+      font-family: 'Orbitron', sans-serif; /* Digital-style font */
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-shadow: 0 0 8px #ffa500, 0 0 10px #ff4500; /* Glowing effect */
     }
-    .feature-item i {
-        font-size: 1.4rem;
+    .time-block .label {
+      font-family: 'Fredoka', 'Noto Sans SC', sans-serif; /* Use main font for labels */
+      font-size: 0.8rem;
+      opacity: 0.9;
+      margin-top: 5px;
+    }
+    /* --- END NEW COUNTDOWN STYLE --- */
+
+
+    /* New Feature Grid Styles */
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+        margin-top: 25px;
+        text-align: center;
+    }
+    .feature-card {
+        background: rgba(255, 255, 255, 0.2);
+        padding: 20px 15px;
+        border-radius: var(--border-radius-md);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        transition: var(--transition);
+    }
+    .feature-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.4);
+    }
+    .feature-card h3 {
+        font-size: 1.1rem;
         color: var(--accent1);
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+    .feature-card p {
+        font-size: 0.9rem;
+        color: var(--text2);
+        font-weight: 500;
     }
 
     /* General Section Styling */
@@ -233,7 +287,7 @@
     .bg1.section-bg::before { background-image: url('背景一全家又在礼物店门口.png'); }
     .bg2.section-bg::before { background-image: url('背景三全家在新加坡.png'); }
     .bg3.section-bg::before { background-image: url('背景二全家在礼物店.png'); }
-    
+
     /* Social Media & Buttons */
     .social-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
     .social-btn {
@@ -262,31 +316,49 @@
     }
     .company-content {
       background: #fff;
-      padding: 20px;
+      padding: 30px; /* More padding */
       border-radius: var(--border-radius-md);
       box-shadow: var(--shadow);
       max-width: 600px;
       margin: 0 auto;
       text-align: center;
     }
+    .about-intro {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--accent1);
+        margin-bottom: 20px;
+        line-height: 1.4;
+    }
+    .company-content p {
+        margin-bottom: 15px;
+    }
+    .about-cta {
+        margin-top: 25px;
+        margin-bottom: 20px;
+        font-style: italic;
+        color: var(--text2);
+        font-size: 0.95rem;
+    }
     .company-section .social-btn.wa {
-      padding: 8px 20px;
-      font-size: 1rem;
+        padding: 12px 24px;
+        font-size: 1rem;
+        display: inline-flex;
+        justify-content: center;
+        min-width: 160px;
     }
 
-    /* Store Section Styles (simple cards) */
+    /* Store Section Styles */
     .store-section {
       padding: 40px 20px;
       max-width: 1200px;
       margin: auto;
     }
-
     .store-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 24px;
     }
-
     .store-card {
       background: #ffffff;
       border-radius: 16px;
@@ -295,8 +367,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: var(--transition);
     }
-
+    .store-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--shadow-hover);
+    }
     .store-image {
       width: 100%;
       height: 220px;
@@ -304,41 +380,40 @@
       border-radius: var(--border-radius-md);
       margin-bottom: 12px;
     }
-
     .store-title {
       font-size: 1.1rem;
       font-weight: bold;
       margin-bottom: 8px;
       color: #2d2d2d;
     }
-
     .store-desc {
       font-size: 0.95rem;
       line-height: 1.6;
       color: #4a4a4a;
     }
-
     .store-desc .en {
       display: block;
       margin-top: 6px;
       font-size: 0.85rem;
       color: #888;
     }
-
     .store-btn {
-      margin-top: 16px;
-      text-decoration: none;
-      font-weight: 500;
-      background: #d2ecff;
-      color: #2d5fa4;
-      padding: 10px 14px;
-      border-radius: 8px;
-      display: inline-block;
-      transition: all 0.2s ease;
+        margin-top: 16px;
+        text-decoration: none;
+        font-weight: 700;
+        background: var(--gradient-accent);
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: var(--border-radius-sm);
+        display: inline-block;
+        transition: var(--transition);
+        box-shadow: 0 4px 15px rgba(74, 144, 226, 0.3);
+        border: none;
+        text-align: center;
     }
-
     .store-btn:hover {
-      background: #bee1ff;
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 25px rgba(74, 144, 226, 0.4);
     }
 
     /* Footer */
@@ -348,19 +423,19 @@
       border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
       margin-top: 60px; position: relative;
     }
-    .footer-mascot { 
-      width: 120px; 
-      height: 120px; 
-      border-radius: 50%; 
-      object-fit: cover; 
-      margin: 0 auto 30px auto; 
-      background: #fff; 
-      box-shadow: var(--shadow); 
-      border: 4px solid white; 
-    }
+    .footer-mascot {
+       width: 120px;
+       height: 120px;
+       border-radius: 50%;
+       object-fit: cover;
+       margin: 0 auto 30px auto;
+       background: #fff;
+       box-shadow: var(--shadow);
+       border: 4px solid white;
+     }
     .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
     .footer-link {
-      color: #fff;
+      color: var(--text2);
       font-size: 1.8rem;
       text-decoration: none;
       display: inline-flex;
@@ -370,13 +445,14 @@
     }
     .footer-link:hover {
       color: var(--accent1);
+      transform: scale(1.2);
     }
     .footer-link svg, .footer-link i {
       width: 1.8rem;
       height: 1.8rem;
     }
     .copyright { color: var(--text2); font-size: 0.9rem; margin-top: 20px; opacity: 0.8; }
-    
+
     /* Floating & Modal */
     .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 99; }
     .fab {
@@ -395,16 +471,18 @@
     .fab-top { background: var(--gradient-accent); opacity: 0; visibility: hidden; transform: translateY(10px); }
     .fab-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
 
-    
     /* Animations */
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
       20%, 60% { transform: translateX(-3px); }
       40%, 80% { transform: translateX(3px); }
     }
+    
+    /* Language Toggle Logic */
     .zh { display: none; }
-    .lang-cn .en { display: none; }
-    .lang-cn .zh { display: inline; }
+    body.lang-cn .en { display: none; }
+    body.lang-cn .zh { display: inline; }
+
     .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
 
@@ -414,16 +492,24 @@
       .logo-img { width: 150px; }
       .countdown-title { font-size: 1.1rem; }
       #countdown { gap: 10px; }
-      .time-block { min-width: 60px; padding: 8px; }
-      .time-block span { font-size: 1.5rem; }
+      .time-block { min-width: 60px; padding: 10px 8px; }
+      .time-block span { font-size: 1.8rem; }
       .time-block .label { font-size: 0.7rem; }
       .section-title { font-size: 2rem; }
       .social-btn { padding: 12px 20px; font-size: 1rem; }
       .fab { width: 45px; height: 45px; font-size: 1.3rem; }
+      .feature-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .feature-card {
+        padding: 15px;
+      }
     }
   </style>
 </head>
-<body>
+<!-- Removed 'lang-cn' class to make English the default -->
+<body> 
   <div class="background-icons" id="background-icons"></div>
 
   <header>
@@ -432,34 +518,32 @@
       <div class="logo-slogan-wrapper">
         <img src="Sinnkawa_logo.png" alt="Sinnkawa Logo" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/180x100/C6E3F9/3D405B?text=Sinnkawa';">
       </div>
-      
+
       <div class="countdown-wrapper">
+        <img src="Sinnkawa_family_pic.png" alt="Sinnkawa Family" class="family-img" onerror="this.onerror=null;this.src='https://placehold.co/360x200/FFFFFF/3D405B?text=Sinnkawa+Family';">
         <div class="countdown-title">
-            <span class="zh">Let‘s Countdown！SINNKAWA®’s official website launching in</span>
+            <span class="zh">Let‘s Countdown！SINNKAWA®官网即将上线</span>
             <span class="en">Let‘s Countdown！SINNKAWA®’s official website launching in</span>
         </div>
-        <img src="Sinnkawa_family_pic.png" alt="Sinnkawa Family" class="family-img">
         <div id="countdown">
-            <div class="time-block"><span id="days">00</span><span class="label zh">天</span><span class="label en">Days</span></div>
-            <div class="time-block"><span id="hours">00</span><span class="label zh">小时</span><span class="label en">Hours</span></div>
-            <div class="time-block"><span id="minutes">00</span><span class="label zh">分钟</span><span class="label en">Mins</span></div>
-            <div class="time-block"><span id="seconds">00</span><span class="label zh">秒</span><span class="label en">Secs</span></div>
+            <div class="time-block"><span id="days">00</span><span class="label en">Days</span><span class="label zh">天</span></div>
+            <div class="time-block"><span id="hours">00</span><span class="label en">Hours</span><span class="label zh">小时</span></div>
+            <div class="time-block"><span id="minutes">00</span><span class="label en">Mins</span><span class="label zh">分钟</span></div>
+            <div class="time-block"><span id="seconds">00</span><span class="label en">Secs</span><span class="label zh">秒</span></div>
         </div>
-        <div class="feature-list">
-            <div class="feature-item">
-                <i class="fas fa-shopping-bag"></i>
-                <span class="zh">线上订购，门店自提</span>
-                <span class="en">Order online, pick up in-store</span>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3><span class="en">Convenience</span><span class="zh">便利</span></h3>
+                <p><span class="en">Order online, pick up in-store</span><span class="zh">线上订购，门店自提</span></p>
             </div>
-            <div class="feature-item">
-                <i class="fas fa-truck"></i>
-                <span class="zh">全岛配送，直送到家</span>
-                <span class="en">Islandwide home delivery</span>
+            <div class="feature-card">
+                <h3><span class="en">Exclusive Offers</span><span class="zh">线上独家优惠</span></h3>
+                <p><span class="en">Exclusive online promotions coming soon!</span><span class="zh">海量线上专属折扣来袭！</span></p>
             </div>
-            <div class="feature-item">
-                <i class="fas fa-gift"></i>
-                <span class="zh">海量线上专属折扣来袭！</span>
-                <span class="en">Exclusive online promotions coming soon!</span>
+            <div class="feature-card">
+                <h3><span class="en">Worry-Free Delivery</span><span class="zh">配送无忧</span></h3>
+                <p><span class="en">Islandwide home delivery</span><span class="zh">全岛配送，直送到家</span></p>
             </div>
         </div>
       </div>
@@ -467,7 +551,6 @@
   </header>
 
   <main class="container">
-    <!-- Social Media Section -->
     <section class="social-section fade-in section-bg bg1">
       <h2 class="section-title"><span class="en">Find Us On</span><span class="zh">关注我们</span></h2>
       <p class="section-subtitle"><span class="en">Follow our journey and get the latest updates!</span><span class="zh">关注我们的旅程，获取最新动态！</span></p>
@@ -480,80 +563,92 @@
       </div>
     </section>
 
-
-    
-
-    <!-- Theme Outlets Section -->
     <section class="store-section section-bg bg2">
+      <h2 class="section-title">
+          <!-- Changed "Downtown" to "in town" -->
+          <span class="en">SINNKAWA® Stores & Restaurants in town</span>
+          <span class="zh">遍布市中心的SINNKAWA®门店以及餐厅</span>
+      </h2>
+      <p class="section-subtitle">
+          <span class="en">Discover our unique locations in Singapore's most vibrant districts.</span>
+          <span class="zh">探索我们在新加坡最具活力的地区设立的每家独特店铺。</span>
+      </p>
       <div class="store-grid">
         <div class="store-card">
           <img src="Sinnkawa_Gift_Store_Chinatown.png" alt="Chinatown Flagship" class="store-image">
-          <h3 class="store-title"><span class="zh">SINNKAWA 牛车水旗舰店</span><span class="en">SINNKAWA Flagship@Chinatown</span></h3>
-          <p class="store-desc"><span class="zh">品牌主旗舰店，呈现全系列IP和独家周边。</span>
-            <span class="en">Main flagship store featuring full IP collections and exclusive merchandise</span>
+          <h3 class="store-title"><span class="en">SINNKAWA Flagship@Chinatown</span><span class="zh">SINNKAWA 牛车水旗舰店</span></h3>
+          <p class="store-desc"><span class="en">Main flagship store featuring full IP collections and exclusive merchandise.</span><span class="zh">品牌主旗舰店，呈现全系列IP和独家周边。</span>
           </p>
-          <a href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" class="store-btn">📍 带我去这！take me</a>
+          <a href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
         </div>
 
         <div class="store-card">
           <img src="Sinnkawa_THEME_Cafe_Chinatown1.png" alt="Chinatown Café" class="store-image">
-          <h3 class="store-title"><span class="zh">SINNKAWA 咖啡厅@牛车水</span><span class="en">SINNKAWA Café@Chinatown</span></h3>
-          <p class="store-desc"><span class="zh">位于楼上的温馨咖啡空间，提供季节限定饮品及IP主题装潢。</span>
-            <span class="en">Cozy upstairs café with seasonal drinks and IP-themed interiors</span>
+          <h3 class="store-title"><span class="en">SINNKAWA Café@Chinatown</span><span class="zh">SINNKAWA 咖啡厅@牛车水</span></h3>
+          <p class="store-desc"><span class="en">Cozy upstairs café with seasonal drinks and IP-themed interiors.</span><span class="zh">位于楼上的温馨咖啡空间，提供季节限定饮品及IP主题装潢。</span>
           </p>
-          <a href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" class="store-btn">📍 带我去这！take me</a>
+          <a href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
         </div>
 
         <div class="store-card">
           <img src="Sinnkawa_Gift_Store_22_Haji_Lane.png" alt="22 Haji Lane" class="store-image">
-          <h3 class="store-title"><span class="zh">SINNKAWA@22 哈芝巷</span><span class="en">SINNKAWA@22 Haji Lane</span></h3>
-          <p class="store-desc"><span class="zh">潮流街头风礼品店，拥有涂鸦墙和面向年轻人的收藏品。</span>
-            <span class="en">Trendy street-style gift shop with graffiti wall and youth-focused collectibles</span>
+          <h3 class="store-title"><span class="en">SINNKAWA@22 Haji Lane</span><span class="zh">SINNKAWA@22 哈芝巷</span></h3>
+          <p class="store-desc"><span class="en">Trendy street-style gift shop with graffiti wall and youth-focused collectibles.</span><span class="zh">潮流街头风礼品店，拥有涂鸦墙和面向年轻人的收藏品。</span>
           </p>
-          <a href="https://maps.app.goo.gl/NgZPfmMp2egFZhAQ7" class="store-btn">📍 带我去这！take me</a>
+          <a href="https://maps.app.goo.gl/NgZPfmMp2egFZhAQ7" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
         </div>
 
         <div class="store-card">
           <img src="Sinnkawa_Gift_Store_68_BW_Theme..png" alt="68 Haji Lane" class="store-image">
-          <h3 class="store-title"><span class="zh">SINNKAWA@68 哈芝巷</span><span class="en">SINNKAWA@68 Haji Lane</span></h3>
-          <p class="store-desc"><span class="zh">黑白极简概念店，精选优质商品。</span>
-            <span class="en">Minimalist black-and-white concept store featuring curated premium items</span>
+          <h3 class="store-title"><span class="en">SINNKAWA@68 Haji Lane</span><span class="zh">SINNKAWA@68 哈芝巷</span></h3>
+          <p class="store-desc"><span class="en">Minimalist black-and-white concept store featuring curated premium items.</span><span class="zh">黑白极简概念店，精选优质商品。</span>
           </p>
-          <a href="https://maps.app.goo.gl/cPchyEaSGGsMjbg99" class="store-btn">📍 带我去这！take me</a>
+          <a href="https://maps.app.goo.gl/cPchyEaSGGsMjbg99" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
         </div>
 
         <div class="store-card">
           <img src="Sinnkawa_43_Haji_Lane_Megastore_Experience_Zone..png" alt="43 Haji Lane" class="store-image">
-          <h3 class="store-title"><span class="zh">SINNKAWA@43 哈芝巷</span><span class="en">SINNKAWA@43 Haji Lane</span></h3>
-          <p class="store-desc"><span class="zh">互动体验区，配备大幅展示和蓝色主题设计。</span>
-            <span class="en">Interactive experience zone with large format displays and blue-themed design</span>
+          <h3 class="store-title"><span class="en">SINNKAWA@43 Haji Lane</span><span class="zh">SINNKAWA@43 哈芝巷</span></h3>
+          <p class="store-desc"><span class="en">Interactive experience zone with large format displays and blue-themed design.</span><span class="zh">互动体验区，配备大幅展示和蓝色主题设计。</span>
           </p>
         </div>
 
         <div class="store-card">
           <img src="Soul_Art_Art_IP_62_Haji.png" alt="Soul Art 62 Haji Lane" class="store-image">
-          <h3 class="store-title"><span class="zh">Soul Art@62 哈芝巷</span><span class="en">Soul Art@62 Haji Lane</span></h3>
-          <p class="store-desc"><span class="zh">艺术与生活方式概念店，展出原创IP艺术及创意周边。</span>
-            <span class="en">Art & lifestyle concept store showcasing original IP artwork and creative merch</span>
+          <h3 class="store-title"><span class="en">Soul Art@62 Haji Lane</span><span class="zh">Soul Art@62 哈芝巷</span></h3>
+          <p class="store-desc"><span class="en">Art & lifestyle concept store showcasing original IP artwork and creative merch.</span><span class="zh">艺术与生活方式概念店，展出原创IP艺术及创意周边。</span>
           </p>
-          <a href="https://maps.app.goo.gl/QHbdCKU81UJwMuX27" class="store-btn">📍 带我去这！take me</a>
+          <a href="https://maps.app.goo.gl/QHbdCKU81UJwMuX27" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
         </div>
       </div>
     </section>
 
-    <!-- Company Info Section -->
     <section class="company-section fade-in section-bg bg3">
       <h2 class="section-title"><span class="en">About Us</span><span class="zh">关于我们</span></h2>
       <div class="company-content">
-            <p><span class="en">SINNKAWA— where Singapore Meets Cuteness!</span><span class="zh">SINNKAWA— 新加坡遇见可爱的地方！</span></p>
-            <p><span class="en">Born in the heart of Singapore, Sinnkawa reimagines local culture through a playful lens. Our original characters – from the crown-wearing Merlion “Morio” to the bubbly Otata – each tell a story inspired by the city’s spirit.</span><span class="zh">心川诞生于新加坡，以充满玩味的视角重新诠释本地文化。我们的原创角色——头戴皇冠的鱼尾狮“Morio”和活力四射的Otata——都讲述着这座城市的精神故事。</span></p>
-            <p><span class="en">More than a brand, Sinnkawa is a feel-good lifestyle infused with charm and imagination. We don’t just make souvenirs; we bring smiles and spark joy through every design, story, and product.</span><span class="zh">SINNKAWA不仅仅是一个品牌，更是一种注入魅力与想象力的美好生活方式。我们不只制作纪念品，更希望通过每个设计、故事和产品带来笑容和喜悦。</span></p>
-          <p><span class="en">✉️ Interested in collaborating with us? Reach out via WhatsApp below.</span><span class="zh">✉️ 有意合作？欢迎通过下方 WhatsApp 联系我们。</span></p>
-        <a href="https://wa.me/6597759906" target="_blank" class="social-btn wa"><span class="icon"><i class="fab fa-whatsapp"></i></span><span>WhatsApp</span></a>
+            <p class="about-intro">
+                <span class="en">SINNKAWA— where Singapore Meets Cuteness!</span>
+                <span class="zh">SINNKAWA— 新加坡遇见可爱的地方！</span>
+            </p>
+            <p>
+                <span class="en">Born in the heart of Singapore, Sinnkawa reimagines local culture through a playful lens. Our original characters – from the crown-wearing Merlion “Morio” to the bubbly Otata – each tell a story inspired by the city’s spirit.</span>
+                <span class="zh">心川诞生于新加坡，以充满玩味的视角重新诠释本地文化。我们的原创角色——头戴皇冠的鱼尾狮“Morio”和活力四射的Otata——都讲述着这座城市的精神故事。</span>
+            </p>
+            <p>
+                <span class="en">More than a brand, Sinnkawa is a feel-good lifestyle infused with charm and imagination. We don’t just make souvenirs; we bring smiles and spark joy through every design, story, and product.</span>
+                <span class="zh">SINNKAWA不仅仅是一个品牌，更是一种注入魅力与想象力的美好生活方式。我们不只制作纪念品，更希望通过每个设计、故事和产品带来笑容和喜悦。</span>
+            </p>
+            <p class="about-cta">
+                <span class="en">✉️ Interested in collaborating with us? Reach out via WhatsApp below.</span>
+                <span class="zh">✉️ 有意合作？欢迎通过下方 WhatsApp 联系我们。</span>
+            </p>
+            <a href="https://wa.me/6597759906" target="_blank" class="social-btn wa">
+                <span class="icon"><i class="fab fa-whatsapp"></i></span>
+                <span>WhatsApp</span>
+            </a>
       </div>
     </section>
   </main>
-
 
   <footer>
     <img src="Sinnkawa_footer.png" alt="Footer Mascot" class="footer-mascot" onerror="this.onerror=null;this.src='https://placehold.co/120x120/C6E3F9/3D405B?text=Sinnkawa';">
@@ -575,10 +670,9 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-
       // --- Countdown Timer ---
-      const countdownDate = new Date();
-      countdownDate.setDate(countdownDate.getDate() + 30);
+      // Set the target date to 30 days from July 21, 2025, which is August 20, 2025
+      const countdownDate = new Date('2025-08-20T00:00:00');
 
       const countdownFunction = setInterval(() => {
         const now = new Date().getTime();
@@ -586,7 +680,7 @@
 
         if (distance < 0) {
           clearInterval(countdownFunction);
-          document.getElementById("countdown").innerHTML = `<div class="countdown-title"><span class="zh">官网已上线!</span><span class="en">Our Website is Live!</span></div>`;
+          document.getElementById("countdown").innerHTML = `<div class="countdown-title" style="animation: none;"><span class="en">Our Website is Live!</span><span class="zh">官网已上线!</span></div>`;
           return;
         }
         const d = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -599,14 +693,13 @@
         document.getElementById("minutes").innerText = String(m).padStart(2, '0');
         document.getElementById("seconds").innerText = String(s).padStart(2, '0');
       }, 1000);
-      
 
       // --- Floating Buttons & Back to Top ---
       const backToTopBtn = document.getElementById('backToTop');
       window.addEventListener('scroll', () => {
         backToTopBtn.classList.toggle('visible', window.pageYOffset > 300);
       });
-      backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0 }));
+      backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
       // --- Fade-in Animation on Scroll ---
       const observer = new IntersectionObserver((entries) => {
@@ -618,15 +711,16 @@
         });
       }, { threshold: 0.1 });
       document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-      
+
       // --- Language Toggle ---
       window.toggleLang = () => {
         document.body.classList.toggle('lang-cn');
       };
-      
+
       // --- New Page-wide Background Icons ---
       function createPageBackgroundIcons() {
         const iconContainer = document.getElementById('background-icons');
+        if (!iconContainer) return;
         const icons = [
             'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiM1YTdkOWEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNNzUgMzBoNUExMCAxMCAwIDAgMSA5MCA0MHYyMEE1IDUgMCAwIDEgODUgNjVoLTcwQTUgNSAwIDAgMSAxMCA2MFY0MEExMCAxMCAwIDAgMSAyMCAzMGg1TTUwIDY1Vjg1TTMwIDg1aDQwTTUwIDMwYTQgNCAwIDEgMCAwLTguNEwzNSA1bC01IDEwTTUwIDMwYTQgNCAwIDEgMCAwLTguNEw2NSA1bDUtMTBNNTAgMzBhNCA0IDAgMSAwIDAtOC40TDUwIDUiLz48L3N2Zz4=', // MBS
             'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNWE3ZDlhIiBzdHJva2Utd2lkdGg9IjMiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1IiBmaWxsPSIjNWE3ZDlhIi8+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNWE3ZDlhIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTUwIDEwdjgwTTI0IDc2bDUyLTUyTTMwIDUwaDQwTTI0IDI0bDUyIDUyIi8+PC9zdmc+', // Flyer
@@ -634,13 +728,11 @@
             'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiM1YTdkOWEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMjAgODBoNjBNMzAgODBWNTBhMTAgMTAgMCAwIDEgMTAtMTBoMjBhMTAgMTAgMCAwIDEgMTAgMTB2MzBNNTAgNDBWMTVhNSA1IDAgMCAxIDUtNUg2MCIvPjxwYXRoIGZpbGw9IiM1YTdkOWEiIGQ9Ik01MCAxMEExMCAxMCAwIDEgMCA1MCAzMEExMCAxMCAwIDEgMCA1MCAxMFoiLz48L3N2Zz4=' // Changi Tower
         ];
         const iconCount = 15;
-
         for (let i = 0; i < iconCount; i++) {
             const iconWrapper = document.createElement('div');
             iconWrapper.className = 'bg-icon';
             const iconImg = document.createElement('img');
             iconImg.src = icons[i % icons.length];
-            
             const size = Math.random() * 80 + 40; // 40px to 120px
             iconWrapper.style.width = `${size}px`;
             iconWrapper.style.height = `${size}px`;
@@ -648,7 +740,6 @@
             iconWrapper.style.left = `${Math.random() * 100}%`;
             iconWrapper.style.animationDuration = `${Math.random() * 40 + 30}s`; // 30s to 70s
             iconWrapper.style.animationDelay = `-${Math.random() * 70}s`;
-
             iconWrapper.appendChild(iconImg);
             iconContainer.appendChild(iconWrapper);
         }
@@ -656,7 +747,6 @@
       createPageBackgroundIcons();
 
     });
-
   </script>
 </body>
 </html>
