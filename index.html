@@ -9,7 +9,8 @@
   <!-- Added Orbitron font for the countdown -->
   <link href='https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&family=Fredoka:wght@400;500;700&family=Indie+Flower&family=Orbitron:wght@700&display=swap' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="icon" href="Sinnkawa_logo.png">
+  <!-- MODIFICATION: Changed favicon -->
+  <link rel="icon" href="网站缩略图.png">
   <style>
     :root {
       /* Updated color palette */
@@ -101,7 +102,6 @@
       overflow: hidden;
       z-index: 1;
     }
-    /* MODIFICATION: Updated background image handling */
     header.bg-image-section::before {
       content: '';
       position: absolute;
@@ -136,8 +136,8 @@
       transition: var(--transition);
     }
     .lang-switch:hover { background: white; box-shadow: var(--shadow); }
-    /* MODIFICATION: Increased margin-bottom */
-    .logo-slogan-wrapper { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 50px; }
+    /* MODIFICATION: Increased gap for more space */
+    .logo-slogan-wrapper { display: flex; flex-direction: column; align-items: center; gap: 40px; margin-bottom: 50px; }
     .logo-img { width: 240px; transition: transform 0.4s ease; }
     .logo-img:hover { transform: rotate(5deg) scale(1.05); }
     .slogan-image {
@@ -265,7 +265,6 @@
       margin-right: auto; text-align: center;
     }
 
-    /* MODIFICATION: Updated background image handling */
     .section-bg {
       position: relative;
       z-index: 1;
@@ -334,7 +333,6 @@
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 24px;
     }
-    /* MODIFICATION: Centered text in store cards */
     .store-card {
       background: #ffffff;
       border-radius: 16px;
@@ -369,7 +367,6 @@
       color: #4a4a4a;
       flex-grow: 1; /* Allow description to take up space */
     }
-    /* MODIFICATION: New store button style */
     .store-btn {
         margin-top: 16px;
         text-decoration: none;
@@ -512,9 +509,7 @@
      }
     .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
     .footer-link {
-      /* MODIFICATION: Changed icon color to blue */
       color: var(--accent1);
-      font-size: 1.8rem;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -522,20 +517,34 @@
       transition: var(--transition);
     }
     .footer-link:hover {
-      /* MODIFICATION: Removed color change on hover, kept scale */
       color: var(--accent2);
       transform: scale(1.2);
     }
-    .footer-link svg, .footer-link img {
+    .footer-link img {
       width: 3.6rem;
       height: 3.6rem;
-      fill: var(--accent1); /* Ensure SVG fill is blue */
     }
     .footer-link i {
-       width: 1.8rem;
-       height: 1.8rem;
+       font-size: 1.8rem;
+       color: var(--accent1); /* Explicitly set FontAwesome icon color */
+       transition: color 0.3s;
+    }
+    .footer-link:hover i {
+        color: var(--accent2);
     }
     .copyright { color: var(--text2); font-size: 0.9rem; margin-top: 20px; opacity: 0.8; }
+    /* MODIFICATION: Added legal notice style */
+    .legal-notice {
+        color: var(--text2);
+        font-size: 0.8rem;
+        margin-top: 20px;
+        opacity: 0.7;
+        max-width: 800px;
+        padding: 0 15px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.5;
+    }
 
     /* Floating & Modal */
     .floating-buttons { position: fixed; bottom: 30px; right: 30px; display: flex; flex-direction: column; gap: 15px; z-index: 99; }
@@ -604,7 +613,7 @@
     <button class="lang-switch" onclick="toggleLang()">🌍 <span class="en">中</span><span class="zh">EN</span></button>
     <div class="container">
       <div class="logo-slogan-wrapper">
-        <img src="Sinnkawa_logo.png" alt="Sinnkawa Logo" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/240x135/C6E3F9/3D405B?text=Sinnkawa';">
+        <img src="Sinnkawa_logo.png" alt="Sinnkawa Logo" class="logo-img" onerror="this.onerror=null;this.src='https://placehold.co/240x135/C6E3F9/3D405B?text=SINNKAWA®';">
         <img src="Sinnkawa_family_pic.png" alt="Sinnkawa Family" class="slogan-image" onerror="this.onerror=null;this.src='https://placehold.co/600x225/C6E3F9/3D405B?text=Sinnkawa+Family';">
       </div>
 
@@ -648,7 +657,6 @@
         <p class="section-subtitle"><span class="en">Follow our journey and get the latest updates!</span><span class="zh">关注我们的旅程，获取最新动态！</span></p>
         <div class="social-btns">
           <a class="social-btn xhs" href="https://www.xiaohongshu.com/user/profile/664f08440000000003030e90?xsec_token=YBRqAoXrpd8BnbO2cGTwZHw24jB3u5iigY3BzJh94q3Ms=&xsec_source=app_share&xhsshare=CopyLink&appuid=5a8ded9f4eacab3148139220&apptime=1753039735&share_id=c2b6eba803514ef8b0dbe61670f159f9" target="_blank"><span class="icon"><svg class="xhs-icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M925.408 320.8H699.84l-2.176-2.176a44.736 44.736 0 0 0-31.68-13.12H358.08a44.736 44.736 0 0 0-31.68 13.12l-2.176 2.176H98.592a44.736 44.736 0 0 0-44.736 44.736v415.168a44.736 44.736 0 0 0 44.736 44.736h826.816a44.736 44.736 0 0 0 44.736-44.736V365.536a44.736 44.736 0 0 0-44.736-44.736zM371.2 512l-71.296-71.296 71.296-71.296L442.496 440.704l71.296-71.296 71.296 71.296-71.296 71.296-71.296-71.296-71.296 71.296z m323.328 159.232a22.368 22.368 0 0 1-22.368 22.368H353.92a22.368 22.368 0 0 1-22.368-22.368V626.432a22.368 22.368 0 0 1 22.368-22.368h318.272a22.368 22.368 0 0 1 22.368 22.368v44.8z"></path></svg></span><span class="en">RED</span><span class="zh">小红书</span></a>
-          <!-- MODIFICATION: Reverted this button to a standard style -->
           <a class="social-btn xhs" href="http://xhslink.com/m/R8537Wa0uF" target="_blank" title="精选好物抢先得！"><span class="icon"><i class="fas fa-shopping-bag"></i></span><span class="en">RED Mall</span><span class="zh">小红书商城</span></a>
           <a class="social-btn ig" href="https://www.instagram.com/sinnkawa_official?igsh=c2l2Njhqc3FmMGc4" target="_blank"><span class="icon"><i class="fab fa-instagram"></i></span><span>Instagram</span></a>
           <a class="social-btn tt" href="https://www.tiktok.com/@sinnkawasingapore" target="_blank"><span class="icon"><i class="fab fa-tiktok"></i></span><span>TikTok</span></a>
@@ -660,7 +668,6 @@
     <section class="store-section section-bg bg-image-section" style="--bg-img: url('背景三全家在新加坡.png');">
       <div class="container">
         <h2 class="section-title">
-            <!-- MODIFICATION: Changed "Restaurants" to "Café" -->
             <span class="en">SINNKAWA® Stores & Café in town</span>
             <span class="zh">遍布市中心的SINNKAWA®门店以及咖啡厅</span>
         </h2>
@@ -671,7 +678,7 @@
         <div class="store-grid">
           <div class="store-card">
             <img src="Sinnkawa_Gift_Store_Chinatown.png" alt="Chinatown Flagship" class="store-image">
-            <h3 class="store-title"><span class="en">SINNKAWA Flagship@Chinatown</span><span class="zh">SINNKAWA 牛车水旗舰店</span></h3>
+            <h3 class="store-title"><span class="en">SINNKAWA® Flagship@Chinatown</span><span class="zh">SINNKAWA® 牛车水旗舰店</span></h3>
             <p class="store-desc"><span class="en">Main flagship store featuring full IP collections and exclusive merchandise.</span><span class="zh">品牌主旗舰店，呈现全系列IP和独家周边。</span>
             </p>
             <a href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
@@ -679,7 +686,7 @@
 
           <div class="store-card">
             <img src="Sinnkawa_THEME_Cafe_Chinatown1.png" alt="Chinatown Café" class="store-image">
-            <h3 class="store-title"><span class="en">SINNKAWA Café@Chinatown</span><span class="zh">SINNKAWA 咖啡厅@牛车水</span></h3>
+            <h3 class="store-title"><span class="en">SINNKAWA® Café@Chinatown</span><span class="zh">SINNKAWA® 咖啡厅@牛车水</span></h3>
             <p class="store-desc"><span class="en">Cozy upstairs café with seasonal drinks and IP-themed interiors.</span><span class="zh">位于楼上的温馨咖啡空间，提供季节限定饮品及IP主题装潢。</span>
             </p>
             <a href="https://maps.app.goo.gl/AuDRqswjxYYgBVFg8" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
@@ -687,7 +694,7 @@
 
           <div class="store-card">
             <img src="Sinnkawa_Gift_Store_22_Haji_Lane.png" alt="22 Haji Lane" class="store-image">
-            <h3 class="store-title"><span class="en">SINNKAWA@22 Haji Lane</span><span class="zh">SINNKAWA@22 哈芝巷</span></h3>
+            <h3 class="store-title"><span class="en">SINNKAWA®@22 Haji Lane</span><span class="zh">SINNKAWA®@22 哈芝巷</span></h3>
             <p class="store-desc"><span class="en">Trendy street-style gift shop with graffiti wall and youth-focused collectibles.</span><span class="zh">潮流街头风礼品店，拥有涂鸦墙和面向年轻人的收藏品。</span>
             </p>
             <a href="https://maps.app.goo.gl/NgZPfmMp2egFZhAQ7" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
@@ -695,7 +702,7 @@
 
           <div class="store-card">
             <img src="Sinnkawa_Gift_Store_68_BW_Theme..png" alt="68 Haji Lane" class="store-image">
-            <h3 class="store-title"><span class="en">SINNKAWA@68 Haji Lane</span><span class="zh">SINNKAWA@68 哈芝巷</span></h3>
+            <h3 class="store-title"><span class="en">SINNKAWA®@68 Haji Lane</span><span class="zh">SINNKAWA®@68 哈芝巷</span></h3>
             <p class="store-desc"><span class="en">Minimalist black-and-white concept store featuring curated premium items.</span><span class="zh">黑白极简概念店，精选优质商品。</span>
             </p>
             <a href="https://maps.app.goo.gl/cPchyEaSGGsMjbg99" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
@@ -703,7 +710,7 @@
 
           <div class="store-card">
             <img src="Sinnkawa_43_Haji_Lane_Megastore_Experience_Zone..png" alt="43 Haji Lane" class="store-image">
-            <h3 class="store-title"><span class="en">SINNKAWA@43 Haji Lane</span><span class="zh">SINNKAWA@43 哈芝巷</span></h3>
+            <h3 class="store-title"><span class="en">SINNKAWA®@43 Haji Lane</span><span class="zh">SINNKAWA®@43 哈芝巷</span></h3>
             <p class="store-desc"><span class="en">Interactive experience zone with large format displays and blue-themed design.</span><span class="zh">互动体验区，配备大幅展示和蓝色主题设计。</span>
             </p>
              <a href="https://maps.app.goo.gl/4CJjL2YQxG5aYm2u6" class="store-btn">📍 <span class="en">Take Me There!</span><span class="zh">带我去！</span></a>
@@ -725,17 +732,16 @@
         <h2 class="section-title"><span class="en">About Us</span><span class="zh">关于我们</span></h2>
         <div class="company-content">
               <p class="about-intro">
-                  <span class="en">SINNKAWA— where Singapore Meets Cuteness!</span>
-                  <span class="zh">SINNKAWA— 新加坡遇见可爱的地方！</span>
+                  <span class="en">SINNKAWA®— where Singapore Meets Cuteness!</span>
+                  <span class="zh">SINNKAWA®— 新加坡遇见可爱的地方！</span>
               </p>
               <p>
-                  <!-- MODIFICATION: Removed "Morio" -->
-                  <span class="en">Born in the heart of Singapore, Sinnkawa reimagines local culture through a playful lens. Our original characters – from the crown-wearing Merlion to the bubbly Otata – each tell a story inspired by the city’s spirit.</span>
-                  <span class="zh">心川诞生于新加坡，以充满玩味的视角重新诠释本地文化。我们的原创角色——头戴皇冠的鱼尾狮和活力四射的Otata——都讲述着这座城市的精神故事。</span>
+                  <span class="en">Born in the heart of Singapore, SINNKAWA® reimagines local culture through a playful lens. Our original characters – from the crown-wearing Merlion to the bubbly Otata – each tell a story inspired by the city’s spirit.</span>
+                  <span class="zh">SINNKAWA®诞生于新加坡，以充满玩味的视角重新诠释本地文化。我们的原创角色——头戴皇冠的鱼尾狮和活力四射的Otata——都讲述着这座城市的精神故事。</span>
               </p>
               <p>
-                  <span class="en">More than a brand, Sinnkawa is a feel-good lifestyle infused with charm and imagination. We don’t just make souvenirs; we bring smiles and spark joy through every design, story, and product.</span>
-                  <span class="zh">SINNKAWA不仅仅是一个品牌，更是一种注入魅力与想象力的美好生活方式。我们不只制作纪念品，更希望通过每个设计、故事和产品带来笑容和喜悦。</span>
+                  <span class="en">More than a brand, SINNKAWA® is a feel-good lifestyle infused with charm and imagination. We don’t just make souvenirs; we bring smiles and spark joy through every design, story, and product.</span>
+                  <span class="zh">SINNKAWA®不仅仅是一个品牌，更是一种注入魅力与想象力的美好生活方式。我们不只制作纪念品，更希望通过每个设计、故事和产品带来笑容和喜悦。</span>
               </p>
         </div>
       </div>
@@ -748,7 +754,6 @@
             <span class="en">Have questions or collaboration ideas? Drop us a message!</span>
             <span class="zh">有任何问题或合作想法？给我们留言吧！</span>
         </p>
-        <!-- MODIFICATION: Added reCAPTCHA for better submission -->
         <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-netlify-recaptcha="true">
             <input type="hidden" name="form-name" value="contact" />
             <p class="hidden-field">
@@ -780,16 +785,20 @@
   </main>
 
   <footer>
-    <img src="Sinnkawa_footer.png" alt="Footer Mascot" class="footer-mascot" onerror="this.onerror=null;this.src='https://placehold.co/120x120/C6E3F9/3D405B?text=Sinnkawa';">
+    <img src="footer举牌.jpg" alt="Footer Mascot" class="footer-mascot" onerror="this.onerror=null;this.src='https://placehold.co/120x120/C6E3F9/3D405B?text=SINNKAWA®';">
     <div class="footer-links">
         <a class="footer-link" href="https://www.xiaohongshu.com/user/profile/664f08440000000003030e90?xsec_token=YBRqAoXrpd8BnbO2cGTwZHw24jB3u5iigY3BzJh94q3Ms=&xsec_source=app_share&xhsshare=CopyLink&appuid=5a8ded9f4eacab3148139220&apptime=1753039735&share_id=c2b6eba803514ef8b0dbe61670f159f9" target="_blank">
-          <img src="小红书footer.png" alt="小红书" />
+          <img src="小红书footer.png.png" alt="小红书" />
         </a>
       <a class="footer-link" href="https://www.tiktok.com/@sinnkawasingapore" target="_blank"><i class="fab fa-tiktok"></i></a>
       <a class="footer-link" href="https://www.instagram.com/sinnkawa_official?igsh=c2l2Njhqc3FmMGc4" target="_blank"><i class="fab fa-instagram"></i></a>
       <a class="footer-link" href="https://www.threads.net/@sinnkawa_official" target="_blank"><i class="fa-brands fa-threads"></i></a>
     </div>
-    <div class="copyright"><span class="en">© 2025 SINGAPORE SINNKAWA PTE.LTD. All rights reserved.</span><span class="zh">© 2025 SINGAPORE SINNKAWA PTE.LTD. 保留所有权利。</span></div>
+    <div class="copyright"><span class="en">© 2025 SINGAPORE SINNKAWA® PTE.LTD. All rights reserved.</span><span class="zh">© 2025 SINGAPORE SINNKAWA® PTE.LTD. 保留所有权利。</span></div>
+    <div class="legal-notice">
+        <span class="zh">本品牌（SINNKAWA®）所有内容（图像、角色、文案、设计等）均依法受版权与商标法保护。我们严正声明：对任何擅自使用、仿冒、转载本品牌内容的行为，将采取法律手段维权，必要时移交司法机关处理，绝不姑息。</span>
+        <span class="en">All content of this brand (SINNKAWA®), including images, characters, copy, designs, etc., is protected by copyright and trademark law. We solemnly declare that we will take legal action to protect our rights against any unauthorized use, imitation, or reproduction of our brand content. If necessary, the matter will be referred to judicial authorities for prosecution to the fullest extent of the law.</span>
+    </div>
   </footer>
 
   <div class="floating-buttons">
@@ -799,28 +808,68 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // --- Countdown Timer ---
-      const countdownDate = new Date('2025-08-20T00:00:00');
+      
+      // --- Real-time Countdown Timer ---
+      const daysEl = document.getElementById("days");
+      const hoursEl = document.getElementById("hours");
+      const minutesEl = document.getElementById("minutes");
+      const secondsEl = document.getElementById("seconds");
+      const countdownContainer = document.getElementById("countdown");
+      let targetTime;
+      let animationFrameId;
 
-      const countdownFunction = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = countdownDate - now;
+      async function fetchTargetTime() {
+          try {
+              const mockServerResponse = {
+                  target_time: '2025-08-20T00:00:00.000Z' 
+              };
+              targetTime = new Date(mockServerResponse.target_time);
+              startCountdown();
+          } catch (error) {
+              console.error('获取倒计时目标时间失败:', error);
+              countdownContainer.innerHTML = `<div class="countdown-title" style="animation: none;"><span class="en">Countdown failed to load</span><span class="zh">倒计时加载失败</span></div>`;
+          }
+      }
 
-        if (distance < 0) {
-          clearInterval(countdownFunction);
-          document.getElementById("countdown").innerHTML = `<div class="countdown-title" style="animation: none;"><span class="en">Our Website is Live!</span><span class="zh">官网已上线!</span></div>`;
-          return;
-        }
-        const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const s = Math.floor((distance % (1000 * 60)) / 1000);
+      function updateCountdown() {
+          const now = new Date();
+          const remainingTime = targetTime - now;
 
-        document.getElementById("days").innerText = String(d).padStart(2, '0');
-        document.getElementById("hours").innerText = String(h).padStart(2, '0');
-        document.getElementById("minutes").innerText = String(m).padStart(2, '0');
-        document.getElementById("seconds").innerText = String(s).padStart(2, '0');
-      }, 1000);
+          if (remainingTime <= 0) {
+              countdownContainer.innerHTML = `<div class="countdown-title" style="animation: none;"><span class="en">Our Website is Live!</span><span class="zh">官网已上线!</span></div>`;
+              if (animationFrameId) {
+                  cancelAnimationFrame(animationFrameId);
+              }
+              return;
+          }
+
+          const d = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+          const h = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const m = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+          const s = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+          if(daysEl) daysEl.innerText = String(d).padStart(2, '0');
+          if(hoursEl) hoursEl.innerText = String(h).padStart(2, '0');
+          if(minutesEl) minutesEl.innerText = String(m).padStart(2, '0');
+          if(secondsEl) secondsEl.innerText = String(s).padStart(2, '0');
+
+          animationFrameId = requestAnimationFrame(updateCountdown);
+      }
+      
+      function startCountdown() {
+          if (animationFrameId) {
+              cancelAnimationFrame(animationFrameId);
+          }
+          updateCountdown();
+      }
+
+      document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'visible') {
+              console.log("页面可见，自动校准倒计时。");
+          }
+      });
+
+      fetchTargetTime();
 
       // --- Floating Buttons & Back to Top ---
       const backToTopBtn = document.getElementById('backToTop');
@@ -851,7 +900,7 @@
         if (!iconContainer) return;
         const icons = [
             'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiM1YTdkOWEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNNzUgMzBoNUExMCAxMCAwIDAgMSA5MCA0MHYyMEE1IDUgMCAwIDEgODUgNjVoLTcwQTUgNSAwIDAgMSAxMCA2MFY0MEExMCAxMCAwIDAgMSAyMCAzMGg1TTUwIDY1Vjg1TTMwIDg1aDQwTTUwIDMwYTQgNCAwIDEgMCAwLTguNEwzNSA1bC01IDEwTTUwIDMwYTQgNCAwIDEgMCAwLTguNEw2NSA1bDUtMTBNNTAgMzBhNCA0IDAgMSAwIDAtOC40TDUwIDUiLz48L3N2Zz4=', // MBS
-            'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNWE3ZDlhIiBzdHJva2Utd2lkdGg9IjMiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1IiBmaWxsPSIjNWE3ZDlhIi8+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNWE3ZDlhIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTUwIDEwdjgwTTI0IDc2bDUyLTUyTTMwIDUwaDQwTTI0IDI0bDUyIDUyIi8+PC9zdmc+', // Flyer
+            'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI0MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNWE3ZDlhIiBzdHJva2Utd2lkdGg9IjMiLz48Y2lyY2xlIGN4PSI1MCIgY3k9IjUwIiByPSI1IiBmaWxsPSIjNWE3ZDlhIi8+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjNWE3ZDlhIiBzdHJva2Utd2lkdGg9IjMiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgZD0iTTUwIDEwdjgwTTI0IDc2bDUyLTUyTTMwIDUwaDQwTTIIVFIDI0bDUyIDUyIi8+PC9zdmc+', // Flyer
             'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiM1YTdkOWEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMjUgODVWMzBBMjUgMjUgMCAxIDEgNzUgMzB2NTVNNDAgODVoMjBNMjAgODVoNjBNMzUgMTVIMjVhNSA1IDAgMCAwLTUgNXY1MEE1IDUgMCAwIDAgMjUgNzBoMTBNNjUgMTVINDVhNSA1IDAgMCAwLTUgNXY1MEE1IDUgMCAwIDAgNDUgNzBoMjBNODAgMjV2NDVhNSA1IDAgMCAxLTUgNUg3MCIvPjwvc3ZnPg==', // Supertree
             'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiM1YTdkOWEiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMjAgODBoNjBNMzAgODBWNTBhMTAgMTAgMCAwIDEgMTAtMTBoMjBhMTAgMTAgMCAwIDEgMTAgMTB2MzBNNTAgNDBWMTVhNSA1IDAgMCAxIDUtNUg2MCIvPjxwYXRoIGZpbGw9IiM1YTdkOWEiIGQ9Ik01MCAxMEExMCAxMCAwIDEgMCA1MCAzMEExMCAxMCAwIDEgMCA1MCAxMFoiLz48L3N2Zz4=' // Changi Tower
         ];
@@ -878,8 +927,7 @@
       const contactForm = document.getElementById('contact-form');
       const formStatus = document.getElementById('form-status');
       const submitButton = document.getElementById('submit-button');
-      const formContainer = document.querySelector('.contact-section .container');
-
+      
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
 
@@ -900,8 +948,6 @@
         })
         .catch((error) => {
             console.error('Form submission error:', error);
-            // Hide the form and show a generic error message.
-            // This is better than leaving a non-functional form on the page.
             contactForm.style.display = 'none';
             formStatus.innerHTML = `<span class="en">Oops! Something went wrong submitting the form. Please contact us via WhatsApp.</span><span class="zh">糟糕！提交表单时出错了，请通过 WhatsApp 联系我们。</span>`;
             formStatus.className = 'error visible';
