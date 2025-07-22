@@ -1064,8 +1064,8 @@
               targetTime = new Date(mockServerResponse.target_time);
               startCountdown();
           } catch (error) {
-              console.error('获取倒计时目标时间失败:', error);
-              countdownContainer.innerHTML `<div class="countdown-title" style="animation: none;"><span class="en">Countdown failed to load</span><span class="zh">倒计时加载失败</span></div>`;
+            console.error('获取倒计时目标时间失败:', error);
+            countdownContainer.innerHTML = `<div class="countdown-title" style="animation: none;"><span class="en">Countdown failed to load</span><span class="zh">倒计时加载失败</span></div>`;
           }
       }
 
