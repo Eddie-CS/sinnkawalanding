@@ -496,12 +496,22 @@
       border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
       margin-top: 60px; position: relative;
     }
-    /* MODIFICATION: Removed container styles from footer mascot */
+    /* Footer mascot container */
     .footer-mascot {
-       max-width: 240px; /* Control size */
-       height: auto;
-       margin: 0 auto 30px auto;
-     }
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      position: relative;
+      bottom: 0;
+    }
+    .footer-mascot img {
+      max-width: 150px;
+      height: auto;
+      opacity: 1;
+      z-index: 1;
+      margin-bottom: 30px;
+    }
     .footer-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 20px; flex-wrap: wrap; }
     .footer-link {
       color: var(--accent1);
@@ -780,7 +790,9 @@
   </main>
 
   <footer>
-    <img src="footer举牌.jpg" alt="Footer Mascot" class="footer-mascot" onerror="this.onerror=null;this.src='https://placehold.co/240x240/C6E3F9/3D405B?text=SINNKAWA®';">
+    <div class="footer-mascot">
+      <img src="Sinnkawa_footer.png" alt="sinnkawa mascot" />
+    </div>
     <div class="footer-links">
         <a class="footer-link" href="https://www.xiaohongshu.com/user/profile/664f08440000000003030e90?xsec_token=YBRqAoXrpd8BnbO2cGTwZHw24jB3u5iigY3BzJh94q3Ms=&xsec_source=app_share&xhsshare=CopyLink&appuid=5a8ded9f4eacab3148139220&apptime=1753039735&share_id=c2b6eba803514ef8b0dbe61670f159f9" target="_blank">
           <img src="小红书footer.png.png" alt="小红书" />
