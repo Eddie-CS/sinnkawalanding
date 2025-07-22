@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>SINNKAWA 线上商城机器人 Q&A</title>
+<style>
+  body {
+    font-family: Arial, sans-serif; 
+    margin: 20px; 
+    background-color: #f9f9f9;
+    line-height: 1.6;
+  }
+  h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 14px;
+  }
+  .qa-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .qa-item {
+    background: #fff; 
+    padding: 20px; 
+    margin-bottom: 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  .qa-item:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .question {
+    font-weight: bold; 
+    color: #007acc; 
+    cursor: pointer;
+    font-size: 16px;
+    position: relative;
+    padding-right: 20px;
+  }
+  .question:after {
+    content: '▼';
+    position: absolute;
+    right: 0;
+    transition: transform 0.3s ease;
+    font-size: 12px;
+  }
+  .question.active:after {
+    transform: rotate(180deg);
+  }
+  .answer {
+    margin-top: 15px; 
+    display: none; 
+    color: #555;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border-left: 4px solid #007acc;
+  }
+  .category {
+    display: inline-block;
+    background: #e3f2fd;
+    color: #1976d2;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  @media (max-width: 600px) {
+    body { margin: 10px; }
+    .qa-item { padding: 15px; }
+  }
+</style>
+<script>
+function toggleAnswer(id) {
+  var ans = document.getElementById(id);
+  var question = document.querySelector('[onclick*="' + id + '"]');
+  
+  if(ans.style.display === 'none' || ans.style.display === '') {
+    ans.style.display = 'block';
+    question.classList.add('active');
+  } else {
+    ans.style.display = 'none';
+    question.classList.remove('active');
+  }
+}
+</script>
+</head>
+<body>
+<div class="qa-container">
+<h1>SINNKAWA 线上商城机器人 Q&A</h1>
+<p class="intro">点击问题查看详细答案 • 支持移动端浏览</p>
+
+<div class='qa-item'>
+<div class="category">产品咨询</div>
+<div class='question' onclick="toggleAnswer('ans1')">你们的主打 IP 是谁？</div>
+<div class='answer' id='ans1'>Merlion & Friends，全线独家授权的小狮兄弟系列产品。我们拥有完整的IP商品线，包括毛绒玩具、文创用品、食品等多个类别。</div>
+</div>
+
+<div class='qa-item'>
+<div class="category">产品咨询</div>
+<div class='question' onclick="toggleAnswer('ans7')">Pandan 蛋糕多少钱？</div>
+<div class='answer' id='ans7'>斑兰牛油蛋糕整模 S$19.9，单片装 S$2.5。这是我们的招牌新加坡风味甜品，采用优质斑兰叶制作。</div>
+</div>
+
+<div class='qa-item'>
+<div class="category">订单支付</div>
+<div class='question' onclick="toggleAnswer('ans12')">支付支持 GrabPay 吗？</div>
+<div class='answer' id='ans12'>支持多种支付方式：GrabPay、PayNow、Visa/MasterCard 信用卡、借记卡等。支付过程安全便捷。</div>
+</div>
+
+<div class='qa-item'>
+<div class="category">配送服务</div>
+<div class='question' onclick="toggleAnswer('ans18')">新加坡本岛多久送达？</div>
+<div class='answer' id='ans18'>市区范围当日或次日送达，郊区地区1-2个工作日。我们与专业物流公司合作，确保商品安全及时送达。</div>
+</div>
+
+<div class='qa-item'>
+<div class="category">会员服务</div>
+<div class='question' onclick="toggleAnswer('ans23')">积分怎么算？</div>
+<div class='answer' id='ans23'>消费 S$1 = 1 积分，累积100积分可抵扣 S$1。积分永久有效，可在下次购物时直接使用。</div>
+</div>
+
+<div class='qa-item'>
+<div class="category">会员服务</div>
+<div class='question' onclick="toggleAnswer('ans26')">生日月有什么优惠？</div>
+<div class='answer' id='ans26'>生日当月享受全场8折优惠，还有专属Merlion生日礼盒赠送。需要在个人资料中完善生日信息。</div>
+</div>
+
+<div class='qa-item'>
+<div class="category">主题体验</div>
+<div class='question' onclick="toggleAnswer('ans31')">盲盒有隐藏款吗？</div>
+<div class='answer' id='ans31'>有的！每24盒中会有1只限量闪金版Merlion，是收藏级别的特殊款式，非常受欢迎。</div>
+</div>
+
+<div class='qa-item'>
+<div class="category">技术支持</div>
+<div class='question' onclick="toggleAnswer('ans45')">网站加载很慢怎么办？</div>
+<div class='answer' id='ans45'>建议先清除浏览器缓存，或升级到最新版APP。如果问题持续，请联系我们的技术支持团队。</div>
+</div>
+
+<div class='qa-item'>
+<div class="category">产品定制</div>
+<div class='question' onclick="toggleAnswer('ans60')">咖啡可以做 Merlion 拉花吗？</div>
+<div class='answer' id='ans60'>可以的！Merlion主题拉花需要加收S$1服务费。周末期间比较受欢迎，建议提早预订。</div>
+</div>
+
+<div class='qa-item'>
+<div class="category">订单管理</div>
+<div class='question' onclick="toggleAnswer('ans88')">订单怎么自助改地址？</div>
+<div class='answer' id='ans88'>登录账户后进入「我的订单」页面，点击「修改配送信息」即可调整地址。注意：只能在订单发货前修改。</div>
+</div>
+
+</div>
+</body>
+</html>
